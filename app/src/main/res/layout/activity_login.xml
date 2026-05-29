@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+
+        <!-- タイトル -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ログイン"
+            style="@style/SectionTitle"
+
+            />
+
+        <!-- メールアドレス入力 -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_mail"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"
+            />
+
+        <!-- パスワード入力 -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ログインボタン -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.positive"
+            android:text="@string/tv_loginTitle"
+            android:layout_marginBottom="16dp"
+            />
+
+<!--    匿名ログイン-->
+    <Button
+        android:id="@+id/btnGuestLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ゲストで始める"
+        style="@style/Button.positive"
+        android:layout_marginBottom="16dp"
+
+        />
+
+<!--    新規登録への誘導-->
+    <TextView
+        android:id="@+id/tvMoveSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新規登録はこちら"
+        style="@style/LinkText"/>
+
+    <!--    パスワード忘れ-->
+    <TextView
+        android:id="@+id/tvPasswordForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="パスワードを忘れた方はこちら"
+        style="@style/LinkText"/>
+
+
+
+<!--         区切り用のテキスト-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvOr"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="または"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="20dp"/>-->
+
+<!--         Googleログインなど追加予定ならここにボタン-->
+<!--        <Button-->
+<!--            android:id="@+id/btnGoogleLogin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Googleでログイン"/>-->
+
+    </LinearLayout>
+

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+
+
+<!--ゲストモードの人への案内-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGuestRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        android:background="@color/cardview_light_background"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+
+            >
+            <TextView
+                android:id="@+id/tvGuestRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Caption"
+                android:text="現在、ゲストモードで利用中です。\nアカウント登録すると、ログアウトしてもデータが失われません。"/>
+
+            <Button
+                android:id="@+id/btnGuestRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="アカウント登録"
+                style="@style/Button.positive"
+                />
+<!--            <TextView-->
+<!--                android:id="@+id/tvGuestRegisterLink"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/Caption"-->
+<!--                android:textColor="@color/text_link"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="[アカウント登録]"/>-->
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+<!--    パラメーターのセクション-->
+    <TextView
+        style="@style/SectionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="現在の性格スキル"/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="15sp"-->
+<!--        android:text="@string/tv_paraDesc"/>-->
+
+
+<!--    新規モンスター登録テスト用のボタン-->
+<!--    <Button-->
+<!--        android:id="@+id/btnRegisterMonster"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Button.positive"-->
+<!--        android:text="登録"/>-->
+
+
+<!--    レーダーチャート-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        android:layout_margin="8dp">
+
+        <com.github.mikephil.charting.charts.RadarChart
+            android:id="@+id/radarChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="8dp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+<!--能力値表示-->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_margin="8dp"
+        >
+
+
+        <!--        社交力-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StatItemContainer"
+            >
+            <TextView
+                android:id="@+id/tvParaTitleE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="社交力："
+                />
+            <TextView
+                android:id="@+id/tvParaIntE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="00"/>
+        </LinearLayout>
+
+
+        <!--        調和力-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StatItemContainer"
+            >
+            <TextView
+                android:id="@+id/tvParaTitleA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="調和力："
+                />
+            <TextView
+                android:id="@+id/tvParaIntA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="00"/>
+        </LinearLayout>
+
+
+        <!--        意志力-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StatItemContainer"
+            >
+            <TextView
+                android:id="@+id/tvParaTitleC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="意志力："
+                />
+            <TextView
+                android:id="@+id/tvParaIntC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="00"/>
+        </LinearLayout>
+
+
+        <!--        精神力-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StatItemContainer"
+            >
+            <TextView
+                android:id="@+id/tvParaTitleN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="精神力："
+                />
+            <TextView
+                android:id="@+id/tvParaIntN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="00"/>
+        </LinearLayout>
+
+
+        <!--        探究力-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StatItemContainer"
+            >
+            <TextView
+                android:id="@+id/tvParaTitleO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="探究力："
+                />
+            <TextView
+                android:id="@+id/tvParaIntO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="00"/>
+        </LinearLayout>
+
+
+        <!--        探究力-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/StatItemContainer"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="HP："
+                />
+            <TextView
+                android:id="@+id/tvParaIntHP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/StatLabel"
+                android:text="00"/>
+        </LinearLayout>
+    </GridLayout>
+
+
+
+
+
+
+    <!--    パラメーター切り替えのトグルボタン → 切り替えむずいので削除 -->
+<!--    <com.google.android.material.button.MaterialButtonToggleGroup-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/toggleGroup"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:singleSelection="true"-->
+<!--        app:selectionRequired="true"-->
+<!--        app:checkedButton="@+id/btCurrent">-->
+
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/btInitial"-->
+<!--            android:text="初期パラメーター"-->
+<!--            style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--            android:checked="true"/>-->
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/btCurrent"-->
+<!--            android:text="現在パラメーター"-->
+<!--            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>-->
+
+
+<!--    </com.google.android.material.button.MaterialButtonToggleGroup>-->
+
+
+<!--    モンスターのセクション-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        >
+
+        <TextView
+            style="@style/SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="育成中モンスター"/>
+
+        <ImageView
+            android:id="@+id/ivInfoIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_info"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="タイプセット："
+            style="@style/SubTitle"
+            android:layout_marginTop="8dp"/>
+
+
+
+        <ImageView
+            android:id="@+id/ivTypeIconE"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_empty"/>
+        <ImageView
+            android:id="@+id/ivTypeIconA"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_empty"/>
+        <ImageView
+            android:id="@+id/ivTypeIconC"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_empty"/>
+        <ImageView
+            android:id="@+id/ivTypeIconN"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_empty"/>
+        <ImageView
+            android:id="@+id/ivTypeIconO"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_empty"/>
+
+
+
+        <ImageView
+            android:id="@+id/ivTypeInfoIcon"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_info"
+            android:layout_marginBottom="12dp"
+            />
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMonsters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
+</ScrollView>
+

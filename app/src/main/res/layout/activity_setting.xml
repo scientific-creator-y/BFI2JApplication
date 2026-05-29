@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="設定"
+        style="@style/SectionTitle"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+
+            <!--        <Button-->
+            <!--            android:id="@+id/btAccount"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="アカウント設定"/>-->
+
+            <Button
+                android:id="@+id/btUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="アップデート確認"
+                style="@style/Button.positive"
+                />
+
+            <!--        <Button-->
+            <!--            android:id="@+id/btPrivacy"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="プライバシーポリシー"-->
+            <!--            android:layout_marginTop="12dp"/>-->
+
+            <Button
+                android:id="@+id/btHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="使い方"
+                style="@style/Button.positive"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

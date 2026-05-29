@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:id="@+id/rootLayout"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- タイトル -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="メール認証"
+        style="@style/SectionTitle"/>
+
+    <!-- 説明 -->
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登録したメールアドレスに認証メールを送信しました。\nメール内のリンクをタップして、アカウント認証を完了してください。"
+        style="@style/Body"/>
+
+    <!-- 注意 -->
+    <TextView
+        android:id="@+id/tvAttention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Caption"
+        android:text="メールが届かない場合は、迷惑メールフォルダもご確認ください。"
+        android:textColor="#D84315"
+
+
+        />
+
+<!--        &lt;!&ndash; イラストなど置く場合 &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:id="@+id/ivMail"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="180dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:src="@drawable/ic_mail"/>-->
+
+<!--        &lt;!&ndash; メールアプリを開く &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/btOpenMail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            style="@style/Button.positive"-->
+<!--            android:text="メールアプリを開く"/>-->
+
+    <!-- 認証確認 -->
+    <Button
+        android:id="@+id/btCheckVerification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        style="@style/Button.positive"
+        android:text="認証完了を確認"/>
+
+    <!-- 再送信 -->
+    <Button
+        android:id="@+id/btResendMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button.negative"
+        android:text="認証メールを再送信"/>
+
+    <!-- ログアウト -->
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="別アカウントでログイン"
+        style="@style/LinkText"/>
+
+</LinearLayout>
+

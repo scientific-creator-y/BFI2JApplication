@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    全体のビュー-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <!--    タイトル-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SectionTitle"
+            android:text="診断結果"
+            />
+
+        <!--    共有ボタン-->
+        <ImageView
+            android:id="@+id/ivShareResult"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_share"
+            android:layout_marginStart="16dp"
+            />
+
+
+    </LinearLayout>
+
+
+<!--レーダーチャート-->
+    <com.github.mikephil.charting.charts.RadarChart
+        android:id="@id/radarChart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="12dp"
+        />
+
+
+<!--導入テキスト-->
+    <TextView
+        android:id="@+id/tvIntroText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="診断完了。\nあなたの内面に眠る5つの性格のレベルが検出されました。\nそれぞれの性格に応じた「パーソナルモンスター」を召喚しましょう。"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        />
+
+
+
+
+<!--    外向性-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/social_color"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tvETitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="外向性：★★★"
+                android:textColor="#F5F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                />
+
+<!--            下位特性①-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 社交性："/>
+                <TextView
+                    android:id="@+id/tvESubTrait1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="1.9 / 5"
+                    />
+            </LinearLayout>
+
+<!--            下位特性②-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" リーダーシップ："/>
+
+                <TextView
+                    android:id="@+id/tvESubTrait2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+<!--            下位特性③-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 活発さ："/>
+                <TextView
+                    android:id="@+id/tvESubTrait3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvEDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_resultHighDescE"
+                style="@style/BodyWhite"
+                android:layout_marginTop="8dp"
+
+                />
+
+
+
+            <Button
+                android:id="@+id/btToAnalysisE"
+                android:text= "召喚する →"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                app:backgroundTint="@color/social_light"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+<!--    協調性-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/harmony_color"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tvATitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="協調性："
+                android:textColor="#F5F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                />
+
+            <!--            下位特性①-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 思いやり："/>
+                <TextView
+                    android:id="@+id/tvASubTrait1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="1.9 / 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性②-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 礼儀正しさ："/>
+
+                <TextView
+                    android:id="@+id/tvASubTrait2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性③-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 素直さ："/>
+                <TextView
+                    android:id="@+id/tvASubTrait3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvADesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="人と"
+                android:textColor="#F5F5F5"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                />
+
+            <Button
+                android:id="@+id/btToAnalysisA"
+                android:text= "召喚する →"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/harmony_light"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+<!--    勤勉性-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/will_color"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tvCTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="勤勉性："
+                android:textColor="#F5F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                />
+
+            <!--            下位特性①-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" きっちりさ："/>
+                <TextView
+                    android:id="@+id/tvCSubTrait1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="1.9 / 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性②-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 努力家："/>
+
+                <TextView
+                    android:id="@+id/tvCSubTrait2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性③-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 責任感："/>
+                <TextView
+                    android:id="@+id/tvCSubTrait3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvCDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="人と"
+                android:textColor="#F5F5F5"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                />
+
+            <Button
+                android:id="@+id/btToAnalysisC"
+                android:text= "召喚する →"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/will_light"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+<!--    情緒安定性-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#8E24AA"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tvNTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="情緒安定性："
+                android:textColor="#F5F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                />
+
+            <!--            下位特性①-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 冷静さ："/>
+                <TextView
+                    android:id="@+id/tvNSubTrait1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="1.9 / 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性②-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 打たれ強さ："/>
+
+                <TextView
+                    android:id="@+id/tvNSubTrait2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性③-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 感情の安定："/>
+                <TextView
+                    android:id="@+id/tvNSubTrait3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvNDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="人と"
+                android:textColor="#F5F5F5"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                />
+
+            <Button
+                android:id="@+id/btToAnalysisN"
+                android:text= "召喚する →"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/mental_light"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+<!--    開放性-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/explore_color"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
+        android:layout_marginBottom="40dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+
+            >
+            <TextView
+                android:id="@+id/tvOTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="開放性："
+                android:textColor="#F5F5F5"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                />
+
+            <!--            下位特性①-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 知的好奇心："/>
+                <TextView
+                    android:id="@+id/tvOSubTrait1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="1.9 / 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性②-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 芸術性："/>
+
+                <TextView
+                    android:id="@+id/tvOSubTrait2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+            <!--            下位特性③-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:text=" 想像豊かさ："/>
+                <TextView
+                    android:id="@+id/tvOSubTrait3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/BodyWhite"
+                    android:layout_marginStart="20dp"
+                    android:text="/ 5"
+                    />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvODesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="人と"
+                android:textColor="#F5F5F5"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                />
+
+            <Button
+                android:id="@+id/btToAnalysisO"
+                android:text= "召喚する →"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/explore_light"
+
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <!--最後テキスト-->
+    <TextView
+        android:id="@+id/tvLastText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="パソモンはあなたが自分の性格を鍛えるたびに、育成されていきます。\nさぁ、パソモンを育成していきましょう。"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        />
+
+<!--    初期診断モードなら結果保存ボタン-->
+<!--    <Button-->
+<!--        android:id="@+id/btSave"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Button.positive"-->
+<!--        android:text="@string/bt_save"-->
+<!--        android:onClick="onSaveButtonClick"/>-->
+
+
+<!--    （仮診断で）ホームへ戻るボタン-->
+    <Button
+        android:id="@+id/btBackToHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button.positive"
+        android:text="ホームへ戻る"
+        />
+<!--    （初期診断で）ホームへ進むボタン-->
+    <Button
+        android:id="@+id/btGoToHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button.positive"
+        android:text="ホームへ"
+        />
+
+
+<!--    （初期＋仮診断で）診断をやり直すボタン-->
+<!--    <Button-->
+<!--        android:id="@+id/btBackToDiagnosis"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Button.negative"-->
+<!--        android:text="診断し直す"-->
+<!--        />-->
+
+
+<!--    （プロフィール画面で）戻るボタン-->
+    <Button
+        android:id="@+id/btBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button.negative"
+        android:text="戻る"
+        android:layout_marginBottom="5dp"
+        android:onClick="onBackButtonClick"/>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+</ScrollView>

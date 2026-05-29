@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+<!--        モンスターの番号-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+<!--            モンスター名-->
+            <TextView
+                android:id="@+id/tvMonsterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/SectionTitle"
+                android:layout_marginStart="4dp"
+                android:text="モンスター名" />
+
+<!--            レベル-->
+            <TextView
+                android:id="@+id/tvMonsterLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="（Lv.）"
+                style="@style/SectionTitle2"
+                />
+        </LinearLayout>
+
+
+
+
+
+
+<!--        モンスターの画像-->
+        <ImageView
+            android:id="@+id/ivMonsterImage"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp" />
+
+
+<!--        モンスターの説明文-->
+        <TextView
+            android:id="@+id/tvMonsterDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="説明文"
+            style="@style/Body"
+
+            android:layout_marginTop="16dp" />
+
+<!--        No.-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="■ パソモンNo："
+                style="@style/BodyTitle"
+                />
+
+
+            <TextView
+                android:id="@+id/tvMonsterNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="001"
+                style="@style/Body"
+                />
+
+
+        </LinearLayout>
+
+<!--        タイプ-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+
+            >
+
+            <TextView
+                android:id="@+id/tvTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="■ タイプ："
+                style="@style/BodyTitleNoMargin"
+                />
+
+            <ImageView
+                android:id="@+id/ivTypeIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="炎"
+                style="@style/BodyNoMargin"
+                />
+
+
+        </LinearLayout>
+
+<!--        レアリティ-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="■ レアリティ："
+                style="@style/BodyTitle"
+                />
+
+            <TextView
+                android:id="@+id/tvMonsterReality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Body"
+                android:text="ブロンズ"
+                />
+
+        </LinearLayout>
+
+<!--        スキル-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="12dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvMonsterSkill"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="スキル："-->
+<!--                android:textSize="16sp"/>-->
+<!--        </LinearLayout>-->
+
+
+<!--        累積値-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="■ 総経験値："
+                style="@style/BodyTitle"
+                />
+
+            <TextView
+                android:id="@+id/tvMonsterTotalExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                style="@style/Body"
+                />
+        </LinearLayout>
+<!--        経験値-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="■ 次のレベルまで："
+                android:textSize="16sp"
+                />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_weight="1"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:max="100"
+                android:progress="0"/>
+
+            <TextView
+                android:id="@+id/tvNeedExp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="あと…"
+                android:layout_marginLeft="12dp"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="16dp">-->
+
+<!--        </LinearLayout>-->
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="戻る"
+            android:layout_marginTop="16dp"
+            style="@style/Button.negative"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+
+    <!-- タイトル -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="正式登録"
+        style="@style/SectionTitle"
+
+        />
+
+    <!-- メールアドレス入力 -->
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_mail"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp"
+        />
+
+    <!-- パスワード入力 -->
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- パスワード確認 -->
+
+
+    <!-- サインアップボタン -->
+    <Button
+        android:id="@+id/btnUpgrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button.positive"
+        android:text="登録"
+        android:layout_marginBottom="16dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Body"
+        android:text="ゲストで利用している場合、ログアウトやアンインストールをするとデータが失われてしまいます。\n\nアカウント登録をすることで、現在の診断結果などのデータを安全に保存できます。"/>
+
+
+
+
+
+
+
+    <!--         区切り用のテキスト-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvOr"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="または"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:layout_marginBottom="20dp"/>-->
+
+    <!--         Googleログインなど追加予定ならここにボタン-->
+    <!--        <Button-->
+    <!--            android:id="@+id/btnGoogleLogin"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Googleでログイン"/>-->
+
+</LinearLayout>
+

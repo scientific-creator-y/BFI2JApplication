@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "293836388530",
+    "project_id": "bfi2japplication",
+    "storage_bucket": "bfi2japplication.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293836388530:android:709001e5d24bacacb531ab",
+        "android_client_info": {
+          "package_name": "com.dino.personalmonster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa2Iifhudqe1Zq9nfu1rSssJKcUkT5raQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293836388530:android:49f002dfb847fd48b531ab",
+        "android_client_info": {
+          "package_name": "com.example.bfi2japplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa2Iifhudqe1Zq9nfu1rSssJKcUkT5raQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293836388530:android:d2e73e29ced3191ab531ab",
+        "android_client_info": {
+          "package_name": "com.scientificcreator.personalmonster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa2Iifhudqe1Zq9nfu1rSssJKcUkT5raQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

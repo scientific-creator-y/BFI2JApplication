@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+
+<!--    パラメーターごとのカラー（自分で追加）-->
+    <color name="social_color">#D84315</color>
+    <color name="harmony_color">#43A047</color>
+    <color name="will_color">#1E88E5</color>
+    <color name="mental_color">#8E24AA</color>
+<!--    <color name="explore_color">#FBC02D</color>-->
+    <color name="explore_color">#FB8C00 </color>
+    <color name="hp_color">#EC407A</color>
+
+    <!-- ボタン用の薄めカラー -->
+    <color name="social_light">#FF8A65</color>
+    <color name="harmony_light">#66BB6A</color>
+    <color name="will_light">#64B5F6</color>
+    <color name="mental_light">#BA68C8</color>
+    <color name="explore_light">#FFCC80</color>
+
+<!--    アプリのベースカラー-->
+    <color name="primary">#FF6F00</color>
+
+<!--    文字-->
+    <color name="text_primary">#222222</color>
+    <color name="text_secondary">#333333</color>
+    <color name="text_hint">#444444</color>
+
+    <color name="text_link">#1976D2</color>
+
+<!--    ボタン-->
+    <color name="button_positive">#FB8C00</color>
+    <color name="button_neutral">#CCCCCC</color>
+    <color name="button_delete">#EF5350</color>
+    <color name="button_negative">#EF5350</color>
+
+    
+
+<!--その他-->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="divider">#EEEEEE</color>
+
+<!--    レーダーチャート-->
+    <color name="radarInitialColor">#5C6BC0</color>
+    <color name="radarInitialFillColor">#C5CAE9</color>
+    <color name="radarCurrentFillColor">#FFB74D</color>
+
+<!--    <color name="popup">#CCFF6F00</color>-->
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,226 @@
+<resources>
+    <string name="app_name">Personal Monster</string>
+    <string name="preference_key">"com.example.sample.PREFERENCE_KEY"</string>
+    <string name="tv_description">以下の項目に5段階で回答してください。回答の目安は以下の通りです。
+
+5：とてもよく当てはまる
+4：当てはまる
+3：どちらとも言えない
+2：当てはまらない
+1：まったく当てはまらない</string>
+    <string name="tv_item1">内向的な性格だと思う</string>
+    <string name="tv_item2">一般的に誠実な方だと思う</string>
+    <string name="tv_item3">怠惰になりがちだ</string>
+    <string name="tv_item4">落ち着いていてストレス対処も上手くやれる</string>
+    <string name="tv_item5">芸術に関して関心が薄い</string>
+    <string name="tv_item6">外向的で社交性があるほうだ</string>
+    <string name="tv_item7">他人の欠点を探してしまいがちだ</string>
+    <string name="tv_item8">仕事をするなら徹底的にやる</string>
+    <string name="tv_item9">緊張しやすいほうだ</string>
+    <string name="tv_item10">活発な想像力がある</string>
+
+    <string name="rb_level5">とてもよく当てはまる</string>
+    <string name="rb_level4">当てはまる</string>
+    <string name="rb_level3">どちらとも言えない</string>
+    <string name="rb_level2">当てはまらない</string>
+    <string name="rb_level1">まったく当てはまらない</string>
+    <string name="bt_submit">診断する</string>
+
+
+    // 高い場合の表示
+    <string name="tv_resultHighTitleE">社交力（外向性）：★★★</string>
+    <string name="tv_resultHighTitleA">調和力（協調性）：★★★</string>
+    <string name="tv_resultHighTitleC">意志力（勤勉性）：★★★</string>
+    <string name="tv_resultHighTitleN">精神力(情緒安定性）：★★★</string>
+    <string name="tv_resultHighTitleO">探究力(開放性）：★★★</string>
+
+    <string name="tv_resultHighDescE">外向性が高く、活発な性格です。\nあなたの明るいエネルギーに、「炎タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultHighDescA">協調性が高く、親切な性格です。\nあなたの穏やかな癒しのオーラに、「草タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultHighDescC">勤勉性が高く、コツコツと物事に取り組むことができる性格です。\nあなたの冷静な思考に、「水タイプ」のパソモンが反応しています…。
+    </string>
+    <string name="tv_resultHighDescN">情緒安定性が高く、メンタルが安定している性格です。あなたの揺るがない頑丈さに、「岩タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultHighDescO">開放性が高く、新しい物事に積極的に挑戦する性格です。\nあなたのひらめきのエネルギーに、「雷タイプ」のパソモンが反応しています…。</string>
+
+
+    // 低い場合の表示
+    <string name="tv_resultLowTitleE">社交力（外向性）：★☆☆</string>
+    <string name="tv_resultLowTitleA">調和力（協調性）：★☆☆</string>
+    <string name="tv_resultLowTitleC">意志力（勤勉性）：★☆☆</string>
+    <string name="tv_resultLowTitleN">精神力(情緒安定性）：★☆☆</string>
+    <string name="tv_resultLowTitleO">探究力(開放性）：★☆☆</string>
+
+    <string name="tv_resultLowDescE">外向性が低く、落ち着いた性格です。\nあなたの静かな気配に、「霊タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultLowDescA">協調性が低く、我が道を行く性格です。\nあなたの鋭い個性に、「毒タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultLowDescC">勤勉性が低く、自由に振る舞う性格です。\nあなたの奔放なスタイルに、「風タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultLowDescN">情緒安定性が低く、繊細な性格です。\nあなたの繊細な感受性に、「氷タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultLowDescO">開放性が低く、堅実な性格です。\nあなたの伝統的な振る舞いに、「鉄タイプ」のパソモンが反応しています…。</string>
+
+
+    // 中ぐらいの場合の表示
+    <string name="tv_resultMiddleTitleE">社交力（外向性）：★★☆</string>
+    <string name="tv_resultMiddleTitleA">調和力（協調性）：★★☆</string>
+    <string name="tv_resultMiddleTitleC">意志力（勤勉性）：★★☆</string>
+    <string name="tv_resultMiddleTitleN">精神力(情緒安定性）：★★☆</string>
+    <string name="tv_resultMiddleTitleO">探究力(開放性）：★★☆</string>
+
+    <string name="tv_resultMiddleDescE">外向性が中ぐらいで、人との距離を自在に操る性格です。\n明るさとミステリアスさをあわせ持つあなたに、「妖タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultMiddleDescA">協調性が中ぐらいで、人に優しさを与えながらも自分の芯を持つ性格です。\n優しさと棘をあわせ持つあなたに、「花タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultMiddleDescC">勤勉性が中ぐらいで、気分屋でほどよく頑張る性格です。\nつかみどころのないあなたに「霧タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultMiddleDescN">情緒安定性が中ぐらいで、タフに見えながら繊細な感受性を秘める性格です。\n硬さと繊細さをあわせ持つあなたに、「鉱物タイプ」のパソモンが反応しています…。</string>
+    <string name="tv_resultMiddleDescO">開放性が中ぐらいで、地に足をつけながら冒険できる性格です。\nひらめきと秩序をあわせ持つあなたに、「電磁タイプ」のパソモンが反応しています…。</string>
+
+
+    <string name="bt_to_analysis">詳細へ</string>
+
+    <string name="bt_save">結果を保存する</string>
+    <string name="bt_back">回答し直す</string>
+
+    <string name="tv_paraDesc">あなたの性格は…</string>
+    <string name="tv_paraTitleE">外向性：</string>
+    <string name="tv_paraTitleA">協調性：</string>
+    <string name="tv_paraTitleC">勤勉性：</string>
+    <string name="tv_paraTitleN">情緒安定性：</string>
+    <string name="tv_paraTitleO">開放性：</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="dialog_title">以上の内容で診断しますか？</string>
+    <!--    <string name="dialog_message"></string>-->
+    <string name="dialog_button_ok">診断する</string>
+    <string name="dialog_button_ng">回答し直す</string>
+
+    <string name="menu_title_home">HOME</string>
+    <string name="menu_title_training">育成</string>
+    <string name="menu_title_habits">習慣</string>
+    <string name="menu_title_monster">モンスター</string>
+
+    <string name="menu_title_delete">診断し直す</string>
+    <string name="menu_title_info">マイプロファイル</string>
+
+    <string name="tv_authTitle">ログイン／サインアップ</string>
+    <string name="tv_loginTitle">ログイン</string>
+    <string name="hint_mail">メールアドレス</string>
+    <string name="hint_password">パスワード</string>
+    <string name="tv_signupTitle">サインアップ</string>
+
+    <string name="btn_complete">達成！</string>
+
+    <string name="et_searchEditText_hint">トレーニングを検索</string>
+    <string name="sp_category_prompt">カテゴリを選択</string>
+
+
+    <!--    結果・プロフィールの詳細画面-->
+    <string name="btn_prof_e_toBlog">外向性に関する研究を見る</string>
+    <string name="btn_prof_a_toBlog">協調性に関する研究を見る</string>
+    <string name="btn_prof_c_toBlog">勤勉性に関する研究を見る</string>
+    <string name="btn_prof_n_toBlog">情緒安定性に関する研究を見る</string>
+    <string name="btn_prof_o_toBlog">開放性に関する研究を見る</string>
+
+    <string name="btn_prof_backToResult">パーソナルモンスター一覧に戻る</string>
+    <string name="btn_prof_share">結果をシェアする</string>
+
+
+    <string name="btn_addHabit_add">習慣に追加する</string>
+    <string name="btn_addHabit_delete">習慣から削除する</string>
+
+    <!--    各プロフィールごとの要素-->
+
+
+    <!--    高い-->
+    <!--    タイトルと説明-->
+    <!--        <string name="tv_prof_e_high_title">あなたの性を表すパーソナルモンスターは「タイプ」です。</string>-->
+    <!--        <string name="tv_prof_e_high_desc">性は、社交的で活動的かどうかを示します。あなたは性が高く、</string>-->
+    <!--        <string name="tv_prof_e_high_feature_title">性が高い人の6つの特徴</string>●\n●-->
+
+    <!--    6つの特徴のまとめ-->
+    <!--    <string name="tv_prof_e_high_feature_desc">●\n●-->
+    <!--    </string>-->
+
+    <!--    6つの特徴タイトル-->
+    <!--        <string name="tv_prof_e_high_feature_1_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_high_feature_2_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_high_feature_3_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_high_feature_4_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_high_feature_5_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_high_feature_6_subtitle"></string>-->
+
+    <!--6つの特徴の説明-->
+    <!--    <string name="tv_prof_e_high_feature_1_subdesc">●\n\n●-->
+
+    <!--    </string>-->
+
+
+    <!--    <string name="tv_prof_e_high_feature_2_subdesc">●-->
+
+    <!--    </string>-->
+
+
+    <!--    <string name="tv_prof_e_high_feature_3_subdesc">●-->
+
+    <!--    </string>-->
+
+
+    <!--    <string name="tv_prof_e_high_feature_4_subdesc">●-->
+
+    <!--    </string>-->
+
+
+    <!--    <string name="tv_prof_e_high_feature_5_subdesc">●-->
+
+    <!--    </string>-->
+
+
+    <!--    <string name="tv_prof_e_high_feature_6_subdesc">●-->
+    <!--        -->
+    <!--    </string>-->
+
+
+    <!--    低い-->
+    <!--        <string name="tv_prof_e_low_title">あなたの性を表すパーソナルモンスターは「タイプ」です。</string>-->
+    <!--        <string name="tv_prof_e_low_desc">性は、社交的で活動的かどうかを示します。あなたは性が高く、</string>-->
+    <!--        <string name="tv_prof_e_low_feature_title">性が低い人の6つの特徴</string>●\n●-->
+
+    <!--            6つの特徴のまとめ-->
+    <!--        <string name="tv_prof_e_low_feature_desc">●\n●-->
+    <!--        </string>-->
+
+
+    <!--        6つの特徴タイトル-->
+    <!--        <string name="tv_prof_e_low_feature_1_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_low_feature_2_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_low_feature_3_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_low_feature_4_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_low_feature_5_subtitle"></string>-->
+    <!--        <string name="tv_prof_e_low_feature_6_subtitle"></string>-->
+
+    <!--    6つの特徴の説明-->
+    <!--        <string name="tv_prof_e_low_feature_1_subdesc">●\n\n●-->
+
+    <!--        </string>-->
+
+
+    <!--        <string name="tv_prof_e_low_feature_2_subdesc">●-->
+
+    <!--        </string>-->
+
+
+    <!--        <string name="tv_prof_e_low_feature_3_subdesc">●-->
+
+    <!--        </string>-->
+
+
+    <!--        <string name="tv_prof_e_low_feature_4_subdesc">●-->
+
+    <!--        </string>-->
+
+
+    <!--        <string name="tv_prof_e_low_feature_5_subdesc">●-->
+
+    <!--        </string>-->
+
+
+    <!--        <string name="tv_prof_e_low_feature_6_subdesc">●-->
+    <!--            -->
+    <!--        </string>-->
+
+</resources>

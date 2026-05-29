@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    >
+
+    <!--ツールバー-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<!--コンテンツ全体-->
+<ScrollView
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+
+        <!--    診断のセクション-->
+        <TextView
+            style="@style/SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60問の性格診断"/>
+
+<!--        ページ数表示-->
+        <TextView
+            android:id="@+id/tvPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/BodyTitle"
+            android:text="1ページ  /  6ページ"
+            android:layout_marginBottom="16dp"
+            />
+
+
+<!--        質問10まで-->
+        <!--        1番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+    <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+<!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+    <!--            ラジオグループ-->
+                <RadioGroup
+                android:id="@+id/rgItem1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+<!--        2番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+<!--        3番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        4番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        5番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        6番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        7番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        8番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        9番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--        10番目-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            android:background="@color/cardview_light_background"
+            android:layout_margin="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp">
+                <!--            質問-->
+                <TextView
+                    android:id="@+id/tvQuestion10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Q1.積極的で，社交的である"
+                    style="@style/SubTitle"
+                    />
+                <!--                選択してくださいのテキスト-->
+                <TextView
+                    android:id="@+id/tvError10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="選択してください"
+                    style="@style/Body"
+                    android:textColor="#F44336"
+                    android:visibility="gone"/>
+                <!--            ラジオグループ-->
+                <RadioGroup
+                    android:id="@+id/rgItem10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="とてもよく当てはまる"
+                        android:tag="5"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="よく当てはまる"
+                        android:tag="4"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="どちらとも言えない"
+                        android:tag="3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="当てはまらない"
+                        android:tag="2"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="まったく当てはまらない"
+                        android:tag="1"/>
+                </RadioGroup>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+
+        <!--        <TextView-->
+<!--            android:id="@+id/tvQuestion2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問2："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問3："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問4："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問5："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem5"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion6"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問6："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem6"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion7"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問7："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem7"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion8"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問8："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem8"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion9"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問9："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem9"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestion10"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="質問10："-->
+<!--            android:textSize="16sp"-->
+<!--            android:layout_marginTop="12dp"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rgItem10"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="とてもよく当てはまる"-->
+<!--                android:tag="5"/>-->
+
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="よく当てはまる"-->
+<!--                android:tag="4"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="どちらとも言えない"-->
+<!--                android:tag="3"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="当てはまらない"-->
+<!--                android:tag="2"/>-->
+<!--            <RadioButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="まったく当てはまらない"-->
+<!--                android:tag="1"/>-->
+
+<!--        </RadioGroup>-->
+
+        <Button
+            android:id="@+id/btNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="次へ"
+            style="@style/Button.positive"
+            android:layout_marginTop="16dp"/>
+
+
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

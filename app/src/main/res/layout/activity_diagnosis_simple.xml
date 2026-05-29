@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+
+
+
+    <!--ツールバー-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+
+    >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+
+
+
+
+        <!--    性格診断のセクション-->
+        <TextView
+            style="@style/SectionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10問の性格診断"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/tv_description"/>
+
+
+<!--        1番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item1"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:id="@+id/rg_item1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+
+
+
+<!--        2番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item2"
+            android:textSize="20sp"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_item2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+
+
+<!--        3番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item3"
+            android:textSize="20sp"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_item3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+
+
+
+
+<!--        4番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item4"
+            android:textSize="20sp"
+            />
+
+
+        <RadioGroup
+            android:id="@+id/rg_item4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+
+
+
+<!--        5番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item5"
+            android:textSize="20sp"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_item5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+
+<!--        6番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item6"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:id="@+id/rg_item6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+<!--        7番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item7"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:id="@+id/rg_item7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+<!--        8番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item8"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:id="@+id/rg_item8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+<!--        9番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item9"
+            android:textSize="20sp"
+            />
+        <RadioGroup
+            android:id="@+id/rg_item9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            >
+
+            <RadioButton
+                android:tag="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level5"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level4"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level3"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level2"
+                android:layout_marginEnd="5dp"/>
+            <RadioButton
+                android:tag="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rb_level1"
+                android:layout_marginEnd="5dp"/>
+        </RadioGroup>
+<!--        10番目-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/tv_item10"
+            android:textSize="20sp"
+            />
+
+
+            <RadioGroup
+                android:id="@+id/rg_item10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:tag="5"
+                    android:text="@string/rb_level5" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:tag="4"
+                    android:text="@string/rb_level4" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:tag="3"
+                    android:text="@string/rb_level3" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:tag="2"
+                    android:text="@string/rb_level2" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:tag="1"
+                    android:text="@string/rb_level1" />
+            </RadioGroup>
+
+            <Button
+            android:id="@+id/btSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.positive"
+            android:layout_marginTop="20dp"
+            android:text="@string/bt_submit"
+            />
+
+        <!--        android:onClick=""-->
+        </LinearLayout>
+</ScrollView>
+</LinearLayout>

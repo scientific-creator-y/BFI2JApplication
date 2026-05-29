@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <item-->
+<!--        android:id="@+id/delete_data"-->
+<!--        android:title="データの削除" />-->
+<!--    <item-->
+<!--        android:id="@+id/remove_user"-->
+<!--        android:title="アカウントの削除" />-->
+
+    <item
+        android:id="@+id/diagnosis_option"
+        android:title="診断を楽しむ" />
+    <item
+        android:id="@+id/info_option"
+        android:title="最初の診断結果" />
+    <item
+        android:id="@+id/logout_option"
+        android:title="ログアウト" />
+
+    <item
+        android:id="@+id/privacy_option"
+        android:title="プライバシーとデータ" />
+
+    <item
+        android:id="@+id/setting_option"
+        android:title="設定" />
+
+    <item
+        android:id="@+id/action_info"
+        android:icon="@drawable/ic_info"
+        android:title="情報"
+        app:showAsAction="ifRoom"/>
+
+</menu>

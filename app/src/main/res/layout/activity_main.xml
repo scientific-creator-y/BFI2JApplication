@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#0D0D0D">
+
+<!--    背景グラデーション-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_intro_gradient"/>
+
+<!--        中央テキスト-->
+        <TextView
+                android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ようこそ、パーソナルモンスターの世界へ"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:padding="24dp"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="sans-serif-medium"
+            />
+        <TextView
+            android:id="@+id/tvIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▼"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            />
+
+</FrameLayout>

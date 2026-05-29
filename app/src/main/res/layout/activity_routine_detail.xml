@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusableInTouchMode="true">
+
+
+<!--        ルーティン詳細のセクション-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            style="@style/SectionTitle"-->
+<!--            android:text="ルーティン詳細"-->
+<!--            />-->
+
+
+        <!--        ルーティン名-->
+        <EditText
+            android:id="@+id/etRoutineName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ルーティン名"
+            android:textSize="20sp"
+            android:layout_marginBottom="24dp"/>
+
+<!--        実施トリガー-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ルーティンを実践するきっかけを設定："
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:paddingBottom="8dp"/>
+        <EditText
+            android:id="@+id/etRoutineTrigger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="例：寝る前に、電車に乗ったら"
+            android:background="@android:drawable/edit_text"
+            android:inputType="textCapSentences"/>
+
+        <Button
+            android:id="@+id/btRoutineDelete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Button.delete"
+            android:text="ルーティンを削除"/>
+
+        <Button
+            android:id="@+id/btBackToMenuList"
+            android:layout_width="match_parent"
+            style="@style/Button.negative"
+            android:text="メニュー一覧へ戻る"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+
+</ScrollView>

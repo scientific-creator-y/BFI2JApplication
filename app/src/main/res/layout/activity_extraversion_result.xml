@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+
+<!--    全体のブロック-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!--    タイトルのブロック-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--    パラメーターのセクション-->
+            <TextView
+                android:id="@+id/tvProfileTitle"
+                style="@style/SectionTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="あなたの外向性は…「」タイプ"/>
+        </LinearLayout>
+
+
+
+
+<!--画像以下のブロック-->
+        <LinearLayout
+            android:id="@+id/contentLayoutRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/primary"
+
+            android:padding="12dp"
+            >
+
+            <!-- モンスターの画像 -->
+            <ImageView
+                android:id="@+id/ivProfileImage"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/underline_red"
+                android:contentDescription="炎タイプのモンスター"
+                android:layout_marginBottom="16dp" />
+
+            <!-- 外向性の説明 -->
+            <TextView
+                android:id="@+id/tvProfileDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="外向性の解説文とモンスターの概要が入ります。"
+                android:textSize="16sp"
+                android:textColor="#444"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- 特徴タイトル -->
+            <TextView
+                android:id="@+id/tvProfileFeatureTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_prof_e_high_feature_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+
+                android:textColor="@color/black"
+                />
+
+        <!-- 特徴リスト（CardView風） -->
+
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/cardFeatures"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:layout_marginBottom="12dp"-->
+        <!--            app:cardCornerRadius="12dp"-->
+        <!--            app:cardElevation="6dp"-->
+        <!--            app:cardBackgroundColor="#F44336"-->
+        <!--            android:padding="12dp">-->
+
+        <LinearLayout
+            android:id="@+id/llFeatures"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProfileFeatureDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="@string/tv_prof_e_high_feature_desc"
+                android:textColor="#444"
+                android:textSize="15sp"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+        <!--        </androidx.cardview.widget.CardView>-->
+
+
+        <!-- 研究リンクボタン -->
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+            <!-- カードビュー1の開始 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileFeature_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FF8A80"
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_1_Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/tv_prof_e_high_feature_1_subtitle"
+                        android:textColor="#333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_1_SubDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:text="@string/tv_prof_e_high_feature_1_subdesc"
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- カードビュー1の終了 -->
+
+            <!-- カードビュー2の開始 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileFeature_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FF8A80"
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_2_Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/tv_prof_e_high_feature_1_subtitle"
+                        android:textColor="#333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_2_SubDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:text="@string/tv_prof_e_high_feature_1_subdesc"
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- カードビュー2の終了 -->
+
+            <!-- カードビュー3の開始 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileFeature_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FF8A80"
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_3_Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/tv_prof_e_high_feature_1_subtitle"
+                        android:textColor="#333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_3_SubDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:text="@string/tv_prof_e_high_feature_1_subdesc"
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- カードビュー3の終了 -->
+
+
+            <!-- カードビュー4の開始 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileFeature_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FF8A80"
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_4_Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/tv_prof_e_high_feature_1_subtitle"
+                        android:textColor="#333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_4_SubDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:text="@string/tv_prof_e_high_feature_1_subdesc"
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- カードビュー4の終了 -->
+
+
+            <!-- カードビュー5の開始 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileFeature_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FF8A80"
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_5_Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/tv_prof_e_high_feature_1_subtitle"
+                        android:textColor="#333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_5_SubDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:text="@string/tv_prof_e_high_feature_1_subdesc"
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- カードビュー5の終了 -->
+
+
+            <!-- カードビュー6の開始 -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileFeature_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FF8A80"
+                app:cardCornerRadius="12dp"
+
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_6_Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/tv_prof_e_high_feature_1_subtitle"
+                        android:textColor="#333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvProfileFeature_6_SubDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="4dp"
+                        android:text="@string/tv_prof_e_high_feature_1_subdesc"
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <!-- カードビュー6の終了 -->
+
+
+        </LinearLayout>
+
+<!--        <Button-->
+<!--            android:id="@+id/btnResearchLink"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/btn_prof_e_toBlog"-->
+<!--            android:backgroundTint="#E64A19"-->
+<!--            android:textColor="#fff"-->
+<!--            android:layout_marginTop="20dp" />-->
+
+        <!-- 共有ボタン -->
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_prof_share"
+            android:backgroundTint="#F57C00"
+            android:textColor="#fff"
+            android:layout_marginTop="12dp" />
+
+        <!-- 戻るボタン -->
+        <Button
+            android:id="@+id/btnBackToList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_prof_backToResult"
+            android:backgroundTint="#BF360C"
+            android:textColor="#fff"
+            android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+    <!--<LinearLayout-->
+    <!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:orientation="vertical"-->
+    <!--    android:padding="16dp"-->
+    <!--&gt;-->
+    <!--    &lt;!&ndash; カードビューの開始 &ndash;&gt;-->
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:cardCornerRadius="8dp"-->
+    <!--        app:cardElevation="4dp"-->
+    <!--        android:layout_marginBottom="16dp">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:padding="16dp">-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="見出し1"-->
+    <!--                android:textSize="20sp"-->
+    <!--                android:textStyle="bold"-->
+    <!--                android:textColor="@android:color/black" />-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+
+    <!--                android:text="• 箇条書き項目1"-->
+    <!--                android:paddingTop="8dp"-->
+    <!--                android:textSize="16sp" />-->
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+
+    <!--                android:text="• 箇条書き項目2"-->
+    <!--                android:paddingTop="4dp"-->
+    <!--                android:textSize="16sp" />-->
+    <!--        </LinearLayout>-->
+    <!--    </androidx.cardview.widget.CardView>-->
+    <!--    &lt;!&ndash; カードビューの終了 &ndash;&gt;-->
+
+    <!--</LinearLayout>-->

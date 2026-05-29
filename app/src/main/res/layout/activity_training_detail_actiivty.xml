@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+<!--    全体の親-->
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
+
+
+<!--        タイトルセクション-->
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SectionTitle"
+        android:text="マインドフルネス瞑想"
+        />
+
+<!--        概要-->
+    <TextView
+        android:id="@+id/tvMenuDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="マインドフルネス瞑想とは、今この瞬間に集中する訓練です。以下の手順で実践してみましょう。"
+        android:layout_marginBottom="16dp"
+        style="@style/Body"/>
+
+<!--    習慣例のブロック-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="16dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="習慣化の例："
+            style="@style/SubTitle"/>
+        <TextView
+            android:id="@+id/tvMenuStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="・静かな場所に座る\n・呼吸に意識を向ける\n・雑念が出たら呼吸に意識を戻す"
+            style="@style/Body"
+            android:layout_marginBottom="16dp"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btBlogLink"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            style="@style/Button.positive"-->
+<!--            android:text="この育成メニューをブログでチェック"-->
+<!--            android:autoLink="web"-->
+<!--            />-->
+    </LinearLayout>
+
+
+<!--        育成情報のブロック-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="16dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="育成情報："
+            style="@style/SubTitle"/>
+
+<!--        スキル名-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="●トレーニング名："
+                style="@style/Body"/>
+
+            <TextView
+                android:id="@+id/tvSkillName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="呼吸瞑想"
+                style="@style/Body"
+                />
+
+        </LinearLayout>
+
+<!--        獲得スキル-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="●獲得できる経験値："
+                style="@style/Body"
+                android:layout_marginTop="8dp"/>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/ivSkillIcon"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:src="@drawable/bg_ic_social"-->
+<!--                android:layout_marginRight="8dp"/>-->
+
+            <TextView
+                android:id="@+id/tvSkillParameter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="社交力"
+                style="@style/Body"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_ic_social"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+<!--        スキル概要-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvSkillDesc"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="心を落ち着け、呼吸に集中することで、岩のようにブレない心を鍛える。精神力＋1する。"-->
+<!--            android:paddingBottom="16dp"/>-->
+
+
+
+
+<!--        後半レイヤー（習慣詳細設定エリア）-->
+
+
+        <LinearLayout
+            android:id="@+id/layoutHabitSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#F5F5F5">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="習慣化設定："
+                style="@style/SubTitle"
+                />
+
+<!--            習慣のきっかけ-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="実践するキッカケを設定："
+                style="@style/Body"/>
+            <EditText
+                android:id="@+id/etTrigger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="例：寝る前に、電車に乗ったら"
+                android:background="@android:drawable/edit_text"
+                android:inputType="textCapSentences"
+                android:layout_marginBottom="8dp"
+                />
+
+<!--            連続達成日数-->
+            <TextView
+                android:id="@+id/tvStreak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="連続達成日数：0日"
+                style="@style/Body"
+                android:layout_marginBottom="8dp"
+
+                />
+
+
+<!--            所属ルーティン-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属ルーティン："
+                    style="@style/Body"
+                    />
+                <TextView
+                    android:id="@+id/tvParentRoutine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="なし"
+                    style="@style/Body"
+                    />
+            </LinearLayout>
+
+<!--            管理ボタン-->
+            <Button
+                android:id="@+id/btnManageRoutine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Button.positive"
+                android:text="ルーティンに追加/解除"/>
+
+
+
+
+        </LinearLayout>
+
+<!--        ボタン関連-->
+
+
+
+        <Button
+            android:id="@+id/btnComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.positive"
+            android:text="@string/btn_complete"
+            android:layout_marginTop="32dp"
+            />
+
+        <Button
+            android:id="@+id/btAddHabit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.positive"
+            android:text="@string/btn_addHabit_add"/>
+
+        <Button
+            android:id="@+id/btBackToMenuList"
+            android:layout_width="match_parent"
+            style="@style/Button.negative"
+            android:text="メニュー一覧へ戻る"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
+
+
+<!--<LinearLayout-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:orientation="vertical">-->
+<!--    -->
+<!--    <WebView-->
+<!--        android:id="@+id/webView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"/>-->
+
+<!--    -->
+<!--</LinearLayout>-->
