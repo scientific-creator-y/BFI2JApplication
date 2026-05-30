@@ -17,10 +17,47 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.GoogleAuthProvider
+import androidx.activity.result.contract.ActivityResultContracts
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
+
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+
+    private val launcher =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+
+            val task =
+                GoogleSignIn.getSignedInAccountFromIntent(result.data)
+
+            try {
+
+                val account =
+                    task.getResult(ApiException::class.java)
+
+                firebaseAuthWithGoogle(account.idToken!!)
+
+            } catch (e: Exception) {
+
+                Toast.makeText(
+                    this,
+                    "Googleログインに失敗しました。",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +75,23 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+
+
+        // Googleログインｎ
+        val gso = GoogleSignInOptions.Builder(
+            GoogleSignInOptions.DEFAULT_SIGN_IN
+        )
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        val btnGoogleLogin = findViewById<Button>(R.id.btnGoogleLogin)
+        btnGoogleLogin.setOnClickListener {
+            val signInIntent = googleSignInClient.signInIntent
+            launcher.launch(signInIntent)
+        }
 
 
         // すでにアカウントがあるならMainActivity or ないならそのまま
@@ -185,9 +239,26 @@ private fun routeUser(userId: String) {
             // アカウント作成画面は消去
             finish()
         }
+    }
 
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
 
-}
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+
+                    Toast.makeText(this, "Googleログインに成功しました。", Toast.LENGTH_LONG).show()
+
+                    val userId = auth.currentUser?.uid
+                    if (userId != null) {
+                        routeUser(userId)
+                    }
+                } else {
+                    Toast.makeText(this, "Firebase認証に失敗しました。", Toast.LENGTH_LONG).show()
+                }
+            }
+    }
 
 
 

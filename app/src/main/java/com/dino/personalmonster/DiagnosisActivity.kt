@@ -543,76 +543,76 @@ class DiagnosisActivity : AppCompatActivity() {
     private fun createQuestions(): List<Question> {
         return listOf(
             // 0～10問
-            Question("積極的で，社交的である", Trait.E, Facet.SOCIABILITY),
-            Question("思いやりがあり，優しい", Trait.A, Facet.COMPASSION),
-            Question("行き当たりばったりな方だ", Trait.C, Facet.ORGANIZATION, true), // 逆転項目
-            Question("リラックスしていて，ストレスにうまく対処している", Trait.N, Facet.CALMNESS, false), // 逆転項目→正のキー（例外的に）
-            Question("芸術的関心があまりない", Trait.O, Facet.AESTHETIC_SENSITIVITY, true), // 逆転項目
-            Question("積極的な性格だ", Trait.E, Facet.ASSERTIVENESS),
-            Question("礼儀正しく，他人に敬意をもって接する", Trait.A, Facet.RESPECTFULNESS),
-            Question("だらだらと過ごす方だ", Trait.C, Facet.PRODUCTIVENESS, true), // 逆転項目
-            Question("失敗を経験しても楽天的なままでいる", Trait.N, Facet.RESILIENCE, false), // 逆転項目→正のキー（例外的に）
-            Question("色々な物事に対する好奇心が強い", Trait.O, Facet.INTELLECTUAL_CURIOSITY),
+            Question("Q1.積極的で，社交的である", Trait.E, Facet.SOCIABILITY),
+            Question("Q2.思いやりがあり，優しい", Trait.A, Facet.COMPASSION),
+            Question("Q3.行き当たりばったりな方だ", Trait.C, Facet.ORGANIZATION, true), // 逆転項目
+            Question("Q4.リラックスしていて，ストレスにうまく対処している", Trait.N, Facet.CALMNESS, false), // 逆転項目→正のキー（例外的に）
+            Question("Q5.芸術的関心があまりない", Trait.O, Facet.AESTHETIC_SENSITIVITY, true), // 逆転項目
+            Question("Q6.積極的な性格だ", Trait.E, Facet.ASSERTIVENESS),
+            Question("Q7.礼儀正しく，他人に敬意をもって接する", Trait.A, Facet.RESPECTFULNESS),
+            Question("Q8.だらだらと過ごす方だ", Trait.C, Facet.PRODUCTIVENESS, true), // 逆転項目
+            Question("Q9.失敗を経験しても楽天的なままでいる", Trait.N, Facet.RESILIENCE, false), // 逆転項目→正のキー（例外的に）
+            Question("Q10.色々な物事に対する好奇心が強い", Trait.O, Facet.INTELLECTUAL_CURIOSITY),
 
             // 11～20問
-            Question("めったに興奮したり，熱狂したりしない", Trait.E, Facet.ENERGY_LEVEL, true), // 逆転項目
-            Question("他人の欠点を見つけ出す方だ", Trait.A, Facet.TRUST, true), // 逆転項目
-            Question("しっかりしていて，真面目だ", Trait.C, Facet.RESPONSIBILITY),
-            Question("不機嫌になりやすく，感情の起伏が激しい", Trait.N, Facet.EMOTIONAL_STABILITY, true), // 普通の項目→負のキー（例外的に）
-            Question("創意工夫が得意で，うまい方法を思いつくことができる", Trait.O, Facet.CREATIVE_IMAGINATION),
-            Question(" 無口な方だ", Trait.E, Facet.SOCIABILITY, true), // 逆転項目
-            Question("他人のことを思って心が痛むことはほとんどない", Trait.A, Facet.COMPASSION, true), // 逆転項目
-            Question("几帳面で，規則正しく整えることが好きだ", Trait.C, Facet.ORGANIZATION),
-            Question("神経が張り詰めることがある", Trait.N, Facet.CALMNESS,  true), // 普通の項目→負のキー（例外的に）
-            Question("芸術，音楽，文学に魅了されている", Trait.O, Facet.AESTHETIC_SENSITIVITY),
+            Question("Q11.めったに興奮したり，熱狂したりしない", Trait.E, Facet.ENERGY_LEVEL, true), // 逆転項目
+            Question("Q12.他人の欠点を見つけ出す方だ", Trait.A, Facet.TRUST, true), // 逆転項目
+            Question("Q13.しっかりしていて，真面目だ", Trait.C, Facet.RESPONSIBILITY),
+            Question("Q14.不機嫌になりやすく，感情の起伏が激しい", Trait.N, Facet.EMOTIONAL_STABILITY, true), // 普通の項目→負のキー（例外的に）
+            Question("Q15.創意工夫が得意で，うまい方法を思いつくことができる", Trait.O, Facet.CREATIVE_IMAGINATION),
+            Question("Q16. 無口な方だ", Trait.E, Facet.SOCIABILITY, true), // 逆転項目
+            Question("Q17.他人のことを思って心が痛むことはほとんどない", Trait.A, Facet.COMPASSION, true), // 逆転項目
+            Question("Q18.几帳面で，規則正しく整えることが好きだ", Trait.C, Facet.ORGANIZATION),
+            Question("Q19.神経が張り詰めることがある", Trait.N, Facet.CALMNESS,  true), // 普通の項目→負のキー（例外的に）
+            Question("Q20.芸術，音楽，文学に魅了されている", Trait.O, Facet.AESTHETIC_SENSITIVITY),
 
             // 21～30問
-            Question("上に立つ方で，リーダーとして活動する", Trait.E, Facet.ASSERTIVENESS),
-            Question("他人と言い争いを始める", Trait.A, Facet.RESPECTFULNESS, true), // 逆転項目
-            Question("なかなか作業に取り掛かることができない", Trait.C, Facet.PRODUCTIVENESS, true), // 逆転項目
-            Question("安心感を抱いており，心地よい", Trait.N, Facet.RESILIENCE, false), // 逆転項目→正のキー（例外的に）
-            Question("知的で哲学的な考察を避けるようにしている", Trait.O, Facet.INTELLECTUAL_CURIOSITY, true), // 逆転項目
-            Question("他の人と比べて活発ではない", Trait.E, Facet.ENERGY_LEVEL, true), // 逆転項目
-            Question("他人を大目に見る寛大な人間だ", Trait.A, Facet.TRUST),
-            Question("少し不注意なところがある", Trait.C, Facet.RESPONSIBILITY, true), // 逆転項目
-            Question("情緒が安定しており，簡単には取り乱さない", Trait.N, Facet.EMOTIONAL_STABILITY, false), // 逆転項目→正のキー（例外的に）
-            Question("創造性がほとんどない", Trait.O, Facet.CREATIVE_IMAGINATION, true), // 逆転項目
+            Question("Q21.上に立つ方で，リーダーとして活動する", Trait.E, Facet.ASSERTIVENESS),
+            Question("Q22.他人と言い争いを始める", Trait.A, Facet.RESPECTFULNESS, true), // 逆転項目
+            Question("Q23.なかなか作業に取り掛かることができない", Trait.C, Facet.PRODUCTIVENESS, true), // 逆転項目
+            Question("Q24.安心感を抱いており，心地よい", Trait.N, Facet.RESILIENCE, false), // 逆転項目→正のキー（例外的に）
+            Question("Q25.知的で哲学的な考察を避けるようにしている", Trait.O, Facet.INTELLECTUAL_CURIOSITY, true), // 逆転項目
+            Question("Q26.他の人と比べて活発ではない", Trait.E, Facet.ENERGY_LEVEL, true), // 逆転項目
+            Question("Q27.他人を大目に見る寛大な人間だ", Trait.A, Facet.TRUST),
+            Question("Q28.少し不注意なところがある", Trait.C, Facet.RESPONSIBILITY, true), // 逆転項目
+            Question("Q29.情緒が安定しており，簡単には取り乱さない", Trait.N, Facet.EMOTIONAL_STABILITY, false), // 逆転項目→正のキー（例外的に）
+            Question("Q30.創造性がほとんどない", Trait.O, Facet.CREATIVE_IMAGINATION, true), // 逆転項目
 //
 //            // 31～40問
-            Question("内気なところがあり，内向的である", Trait.E, Facet.SOCIABILITY, true), // 逆転項目
-            Question("進んで手伝おうとし，他人の利益を優先する", Trait.A, Facet.COMPASSION),
-            Question("物事をきれいに揃えたりまとめたりする", Trait.C, Facet.ORGANIZATION),
-            Question("多くの悩みごとを抱えている", Trait.N, Facet.CALMNESS, true), // 普通の項目→負のキー（例外的に）
-            Question("芸術と美を重視する", Trait.O, Facet.AESTHETIC_SENSITIVITY),
-            Question("人々の行動を左右するような影響力をもつことは難しいと感じる", Trait.E, Facet.ASSERTIVENESS, true), // 逆転項目
-            Question("他人を見下すことがある", Trait.A, Facet.RESPECTFULNESS, true),
-            Question("手際よく行動し，物事を最後までやり遂げる", Trait.C, Facet.PRODUCTIVENESS),
-            Question("よく悲しい気分になる", Trait.N, Facet.RESILIENCE, true), // 普通の項目→負のキー（例外的に）
-            Question("考え方が複雑で，深く考える人間だ", Trait.O, Facet.INTELLECTUAL_CURIOSITY),
+            Question("Q31.内気なところがあり，内向的である", Trait.E, Facet.SOCIABILITY, true), // 逆転項目
+            Question("Q32.進んで手伝おうとし，他人の利益を優先する", Trait.A, Facet.COMPASSION),
+            Question("Q33.物事をきれいに揃えたりまとめたりする", Trait.C, Facet.ORGANIZATION),
+            Question("Q34.多くの悩みごとを抱えている", Trait.N, Facet.CALMNESS, true), // 普通の項目→負のキー（例外的に）
+            Question("Q35.芸術と美を重視する", Trait.O, Facet.AESTHETIC_SENSITIVITY),
+            Question("Q36.人々の行動を左右するような影響力をもつことは難しいと感じる", Trait.E, Facet.ASSERTIVENESS, true), // 逆転項目
+            Question("Q37.他人を見下すことがある", Trait.A, Facet.RESPECTFULNESS, true),
+            Question("Q38.手際よく行動し，物事を最後までやり遂げる", Trait.C, Facet.PRODUCTIVENESS),
+            Question("Q39.よく悲しい気分になる", Trait.N, Facet.RESILIENCE, true), // 普通の項目→負のキー（例外的に）
+            Question("Q40.考え方が複雑で，深く考える人間だ", Trait.O, Facet.INTELLECTUAL_CURIOSITY),
 //
 //            // 41～50問
-            Question("活力にあふれている", Trait.E, Facet.ENERGY_LEVEL),
-            Question("他人が考えていることを怪しんで不信感を抱く", Trait.A, Facet.TRUST, true), // 逆転項目
-            Question("ちゃんとしていて，いつも周りから当てにされる", Trait.C, Facet.RESPONSIBILITY),
-            Question("自分の感情をコントロールしている", Trait.N, Facet.EMOTIONAL_STABILITY, false), // 逆転項目→正のキー（例外的に）
-            Question("ものごとを自由に心に思い描くのは難しい", Trait.O, Facet.CREATIVE_IMAGINATION, true), // 逆転項目
-            Question("おしゃべりな方だ", Trait.E, Facet.SOCIABILITY),
-            Question("冷淡で思いやりに欠けることがある", Trait.A, Facet.COMPASSION, true), // 逆転項目
-            Question("乱雑なものはそのままにして，きれいにしない", Trait.C, Facet.ORGANIZATION, true), // 逆転項目
-            Question("不安や恐れを感じることはめったにない", Trait.N, Facet.CALMNESS, false), // 逆転項目→正のキー（例外的に）
-            Question("詩や演劇をつまらないと思う", Trait.O, Facet.AESTHETIC_SENSITIVITY, true), // 逆転項目
+            Question("Q41.活力にあふれている", Trait.E, Facet.ENERGY_LEVEL),
+            Question("Q42.他人が考えていることを怪しんで不信感を抱く", Trait.A, Facet.TRUST, true), // 逆転項目
+            Question("Q43.ちゃんとしていて，いつも周りから当てにされる", Trait.C, Facet.RESPONSIBILITY),
+            Question("Q44.自分の感情をコントロールしている", Trait.N, Facet.EMOTIONAL_STABILITY, false), // 逆転項目→正のキー（例外的に）
+            Question("Q45.ものごとを自由に心に思い描くのは難しい", Trait.O, Facet.CREATIVE_IMAGINATION, true), // 逆転項目
+            Question("Q46.おしゃべりな方だ", Trait.E, Facet.SOCIABILITY),
+            Question("Q47.冷淡で思いやりに欠けることがある", Trait.A, Facet.COMPASSION, true), // 逆転項目
+            Question("Q48.乱雑なものはそのままにして，きれいにしない", Trait.C, Facet.ORGANIZATION, true), // 逆転項目
+            Question("Q49.不安や恐れを感じることはめったにない", Trait.N, Facet.CALMNESS, false), // 逆転項目→正のキー（例外的に）
+            Question("Q50.詩や演劇をつまらないと思う", Trait.O, Facet.AESTHETIC_SENSITIVITY, true), // 逆転項目
 //
 //            // 51～60問
-            Question("他の人にリーダーシップを発揮してもらうほうが良いと思う  ", Trait.E, Facet.ASSERTIVENESS, true), // 逆転項目
-            Question("他人に丁寧で，礼儀正しい", Trait.A, Facet.RESPECTFULNESS),
-            Question("根気強く，与えられた課題が終わるまで取り組む", Trait.C, Facet.PRODUCTIVENESS),
-            Question("憂うつになり，落胆する方だ", Trait.N, Facet.RESILIENCE, true), // 普通の項目→負のキー（例外的に）
-            Question("抽象的な知識にはほとんど関心がない", Trait.O, Facet.INTELLECTUAL_CURIOSITY, true), // 逆転項目
-            Question("情熱を大いに表に出す", Trait.E, Facet.ENERGY_LEVEL),
-            Question("人々のいちばん良いところを思い浮かべる", Trait.A, Facet.TRUST),
-            Question("無責任な行動をしてしまうことがある", Trait.C, Facet.RESPONSIBILITY, true), // 逆転項目
-            Question("神経質で，感情的になりやすい", Trait.N, Facet.EMOTIONAL_STABILITY, true), // 普通の項目→負のキー（例外的に）
-            Question("個性的で，新しいアイディアを思いつく", Trait.O, Facet.CREATIVE_IMAGINATION),
+            Question("Q51.他の人にリーダーシップを発揮してもらうほうが良いと思う  ", Trait.E, Facet.ASSERTIVENESS, true), // 逆転項目
+            Question("Q52.他人に丁寧で，礼儀正しい", Trait.A, Facet.RESPECTFULNESS),
+            Question("Q53.根気強く，与えられた課題が終わるまで取り組む", Trait.C, Facet.PRODUCTIVENESS),
+            Question("Q54.憂うつになり，落胆する方だ", Trait.N, Facet.RESILIENCE, true), // 普通の項目→負のキー（例外的に）
+            Question("Q55.抽象的な知識にはほとんど関心がない", Trait.O, Facet.INTELLECTUAL_CURIOSITY, true), // 逆転項目
+            Question("Q56.情熱を大いに表に出す", Trait.E, Facet.ENERGY_LEVEL),
+            Question("Q57.人々のいちばん良いところを思い浮かべる", Trait.A, Facet.TRUST),
+            Question("Q58.無責任な行動をしてしまうことがある", Trait.C, Facet.RESPONSIBILITY, true), // 逆転項目
+            Question("Q59.神経質で，感情的になりやすい", Trait.N, Facet.EMOTIONAL_STABILITY, true), // 普通の項目→負のキー（例外的に）
+            Question("Q60.個性的で，新しいアイディアを思いつく", Trait.O, Facet.CREATIVE_IMAGINATION),
         )
     }
 }

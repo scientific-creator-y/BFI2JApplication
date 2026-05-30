@@ -276,9 +276,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="人と"
-                android:textColor="#F5F5F5"
+                style="@style/BodyWhite"
                 android:layout_marginTop="8dp"
-                android:textSize="14sp"
                 />
 
             <Button
@@ -391,9 +390,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="人と"
-                android:textColor="#F5F5F5"
+                style="@style/BodyWhite"
                 android:layout_marginTop="8dp"
-                android:textSize="14sp"
                 />
 
             <Button
@@ -504,9 +502,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="人と"
-                android:textColor="#F5F5F5"
+                style="@style/BodyWhite"
                 android:layout_marginTop="8dp"
-                android:textSize="14sp"
                 />
 
             <Button
@@ -622,9 +619,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="人と"
-                android:textColor="#F5F5F5"
+                style="@style/BodyWhite"
                 android:layout_marginTop="8dp"
-                android:textSize="14sp"
                 />
 
             <Button
