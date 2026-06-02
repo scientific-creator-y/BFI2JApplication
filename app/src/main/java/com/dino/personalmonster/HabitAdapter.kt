@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 sealed class HabitItem {
     data class menuItem(
         val menuId: String,
-        val data: TrainingMenu,
+        val data: TrainingMenuUi,
         val parentRoutineId: String? = null
     ): HabitItem()
 
@@ -33,9 +33,9 @@ sealed class HabitItem {
 class HabitAdapter(
     private var allItems: MutableList<HabitItem>,
     private val showTriggerText: Boolean,
-    private val onMenuClick: (String, TrainingMenu) -> Unit,
+    private val onMenuClick: (String, TrainingMenuUi) -> Unit,
     private val onRoutineClick: (String) -> Unit,
-    private val onMenuCompleteClick: (String, TrainingMenu) -> Unit,
+    private val onMenuCompleteClick: (String, TrainingMenuUi) -> Unit,
     private val onRoutineCompleteClick: (HabitItem.routineItem) -> Unit,
     private val onDeleteClick: (String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -345,7 +345,7 @@ class HabitAdapter(
 
     }
 
-    fun getItemById(id: String): TrainingMenu {
+    fun getItemById(id: String): TrainingMenuUi {
 //        return allItems.first { it.first == id }.second
         val item = allItems.first { it is HabitItem.menuItem && it.menuId == id }
             return (item as HabitItem.menuItem).data

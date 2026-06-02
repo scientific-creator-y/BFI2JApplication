@@ -284,6 +284,7 @@ class HomeFragment : Fragment() {
     }
 
 
+
     // 画面情報をActivityに渡す処理
     override fun onResume() {
         super.onResume()

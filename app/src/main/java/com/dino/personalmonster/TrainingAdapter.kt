@@ -8,11 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class TrainingAdapter(
-    private var items: List<TrainingMenu>,
-    private val onClick: (String, TrainingMenu) -> Unit
+    private var items: List<TrainingMenuUi>,
+    private val onClick: (String, TrainingMenuUi) -> Unit
 ): RecyclerView.Adapter<TrainingAdapter.ViewHolder>() {
 
-    private var filteredItems: MutableList<TrainingMenu> = items.toMutableList()
+    private var filteredItems: MutableList<TrainingMenuUi> = items.toMutableList()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvTitle: TextView = view.findViewById(R.id.tvTrainingTitle)
@@ -40,7 +40,7 @@ class TrainingAdapter(
 
     override fun getItemCount(): Int = filteredItems.size
 
-    fun updateList(newItems: List<TrainingMenu>) {
+    fun updateList(newItems: List<TrainingMenuUi>) {
         items = newItems.toMutableList()
         filteredItems = items.toMutableList()
         notifyDataSetChanged()

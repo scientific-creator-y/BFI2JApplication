@@ -107,10 +107,17 @@ class MainActivity2 : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
+
+
         // 認証済化どうかをチェック
         val user = auth.currentUser
         Log.i("認証状態", "${user?.isEmailVerified}")
 
+        // トレーニングのマスターデータから取得する処理
+        initializeTrainingMenus()
+
+
+        // 初期値を取得する処理（特性、ファセット）
         val userId = auth.currentUser?.uid
         if(userId != null) {
             db.collection("results")
@@ -233,6 +240,41 @@ class MainActivity2 : AppCompatActivity() {
     fun setCurrentScreen(screen: String) {
         currentScreen = screen
 //        Log.i("現在の画面", "現在の画面のタグは${screen}")
+    }
+
+
+
+    // ユーザー用にトレーニングメニューのコピー
+    private fun initializeTrainingMenus() {
+        val userId = auth.currentUser?.uid
+
+        if (userId != null) {
+            db.collection("trainingMenus") // ← マスターデータのトレーニング取得
+                .get()
+                .addOnSuccessListener { masterSnapshot ->
+                    val userMenus = db.collection("results")
+                        .document(userId)
+                        .collection("trainingMenus")
+
+                    masterSnapshot.documents.forEach { masterDoc ->
+                        val userDocRef = userMenus.document(masterDoc.id)
+
+                        userDocRef.get()
+                            .addOnSuccessListener { userDoc ->
+                                // ユーザーにないトレーニングならドキュメントをコピー
+                                if (!userDoc.exists()) {
+                                    userDocRef.set(
+//                                        emptyMap<String, Any>()
+                                        mapOf(
+                                            "habit" to false,
+                                            "orderIndex" to 0
+                                        )
+                                    )
+                                }
+                            }
+                    }
+                }
+        }
     }
 
     // オプションアイテムを作る処理

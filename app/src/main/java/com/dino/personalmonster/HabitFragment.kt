@@ -316,28 +316,61 @@ class HabitFragment : Fragment() {
                     .whereEqualTo("habit",true)
                     .orderBy("orderIndex")
                     .get()
-                    .addOnSuccessListener { menuSnapshots ->
+                    .addOnSuccessListener { stateSnapshots ->
 //                        Log.i("習慣化フラグの取得数", "習慣化フラグがついているものは${menuSnapshots.size()}")
 
-                        // 単体メニューIDとルーティンネストの単体メニューIDを照合するためのマップ
-                        val menuMap = mutableMapOf<String, TrainingMenu>()
+                        val stateMap = stateSnapshots.documents.mapNotNull { doc ->
+                            val state = doc.toObject(TrainingState::class.java)
+                            state?.apply { id = doc.id }
+                        }.associateBy { it.id }
 
-                        // 単体メニューの型に変換する
-                        menuSnapshots.forEach { menuDoc ->
-                            val menu = menuDoc.toObject(TrainingMenu::class.java)
-                            // 取得した単体メニューのidに単体メニューの中身を対応させる
-                            menuMap[menuDoc.id] = menu
+                        db.collection("trainingMenus")
+                            .get()
+                            .addOnSuccessListener { masterSnapshots ->
+                                // 単体メニューIDとルーティンネストの単体メニューIDを照合するためのマップ
+                                val menuMap = mutableMapOf<String, TrainingMenuUi>()
 
-                        }
-                        // 仮置きしたルーティンリストから
-                        routineList.forEach { routine ->
-                            // ルーティンリストとしてまとめたもののidと、Firestoreから取得したルーティンドキュメントを照合
-                            val routineDoc = routineSnapshots.documents.first{ it.id == routine.routineId}
+                                masterSnapshots.documents.forEach { masterDoc ->
+                                    val master = masterDoc.toObject(TrainingMenu::class.java) ?:return@forEach
 
-                            // ルーティンドキュメントからidだけのリストを作成
-                            val menuIds = routineDoc.get("menuIds") as? List<String> ?:emptyList()
+                                    val state = stateMap[masterDoc.id]
 
-                            // 作成したリストから、習慣化のみまとめたマップのidと照合し、子要素に追加
+                                    if (state?.habit == true) {
+                                        val menu = TrainingMenuUi(
+                                            id = masterDoc.id,
+
+                                            title = master.title,
+                                            url = master.url,
+                                            parameterKey = master.parameterKey,
+                                            incrementValue = master.incrementValue,
+                                            description = master.description,
+                                            skillDesc = master.skillDesc,
+                                            skillName = master.skillName,
+                                            step = master.step,
+
+                                            triggerText = state.triggerText,
+                                            habit = state.habit,
+                                            orderIndex = state.orderIndex,
+                                            streakCount = state.streakCount,
+                                            lastCompletedDate = state.lastCompletedDate,
+                                            parentRoutineId = state.parentRoutineId
+
+                                        )
+
+                                        menuMap[masterDoc.id] = menu
+                                    }
+                                }
+
+
+                                // 仮置きしたルーティンリストから
+                                routineList.forEach { routine ->
+                                    // ルーティンリストとしてまとめたもののidと、Firestoreから取得したルーティンドキュメントを照合
+                                    val routineDoc = routineSnapshots.documents.first{ it.id == routine.routineId}
+
+                                    // ルーティンドキュメントからidだけのリストを作成
+                                    val menuIds = routineDoc.get("menuIds") as? List<String> ?:emptyList()
+
+                                    // 作成したリストから、習慣化のみまとめたマップのidと照合し、子要素に追加
 //                            menuIds.forEach { id ->
 //                                val menu = menuMap[id]
 //                                if (menu != null) {
@@ -347,51 +380,51 @@ class HabitFragment : Fragment() {
 //                                }
 //                            }
 
-                            val children = menuIds.mapNotNull { id ->
-                                val menu = menuMap[id]
-                                if (menu != null) {
-                                    HabitItem.menuItem(id, menu, routine.routineId)
-                                } else null
-                            }.toMutableList()
+                                    val children = menuIds.mapNotNull { id ->
+                                        val menu = menuMap[id]
+                                        if (menu != null) {
+                                            HabitItem.menuItem(id, menu, routine.routineId)
+                                        } else null
+                                    }.toMutableList()
 
-                            children.sortBy { it.data.orderIndex }
+                                    children.sortBy { it.data.orderIndex }
 
-                            routine.menuItems.clear()
-                            routine.menuItems.addAll(children)
+                                    routine.menuItems.clear()
+                                    routine.menuItems.addAll(children)
 
-                            // 表示用リストに、子要素をセットしたルーティンを追加
-                            habitItems.add(routine)
-
-
-                            // 子要素を今日達成しているかどうかの判定
-                            val today = LocalDate.now().toString()
-
-                            val isCompletedToday = children.isNotEmpty() &&
-                                    children.all { it.data.lastCompletedDate == today }
-
-                            routine.isCompletedToday = isCompletedToday
-
-                        }
-
-                        // ルーティンに属していない単体メニューだけを追加（習慣化のみまとめたマップから照合）
-                        menuMap.forEach { id, menu ->
-                            if (!routineMenuSet.contains(id)) {
-                                habitItems.add(
-                                    HabitItem.menuItem(id,menu, null)
-                                )
-                            }
-                        }
-
-                        // 第1階層のリストをルーティンと単体メニューを含めてソートする
-                        habitItems.sortBy {
-                            when(it) {
-                                is HabitItem.routineItem -> it.orderIndex
-                                is HabitItem.menuItem -> it.data.orderIndex
-                            }
-                        }
+                                    // 表示用リストに、子要素をセットしたルーティンを追加
+                                    habitItems.add(routine)
 
 
-                        // ログを出してルーティンの構造を確認する
+                                    // 子要素を今日達成しているかどうかの判定
+                                    val today = LocalDate.now().toString()
+
+                                    val isCompletedToday = children.isNotEmpty() &&
+                                            children.all { it.data.lastCompletedDate == today }
+
+                                    routine.isCompletedToday = isCompletedToday
+
+                                }
+
+                                // ルーティンに属していない単体メニューだけを追加（習慣化のみまとめたマップから照合）
+                                menuMap.forEach { id, menu ->
+                                    if (!routineMenuSet.contains(id)) {
+                                        habitItems.add(
+                                            HabitItem.menuItem(id,menu, null)
+                                        )
+                                    }
+                                }
+
+                                // 第1階層のリストをルーティンと単体メニューを含めてソートする
+                                habitItems.sortBy {
+                                    when(it) {
+                                        is HabitItem.routineItem -> it.orderIndex
+                                        is HabitItem.menuItem -> it.data.orderIndex
+                                    }
+                                }
+
+
+                                // ログを出してルーティンの構造を確認する
 //                        habitItems.forEach { item ->
 //                            when(item) {
 //                                is HabitItem.routineItem -> {
@@ -406,21 +439,40 @@ class HabitFragment : Fragment() {
 //                                }
 //                            }
 //                        }
-                        // 何も表示するものがなければ
-                        if (habitItems.isEmpty()) {
-                            // 「追加されていません」のテキスト表示
-                            tvNoHabit.visibility = View.VISIBLE
+                                // 何も表示するものがなければ
+                                if (habitItems.isEmpty()) {
+                                    // 「追加されていません」のテキスト表示
+                                    tvNoHabit.visibility = View.VISIBLE
 
 //                            // 編集のFABボタンを非表示
 //                            fabMain.visibility = View.GONE
 //                            fabRoutine.visibility = View.GONE
 
-                        } else {
-                            // 編集のFABボタンを表示
-                            fabMain.visibility = View.VISIBLE
-                            fabRoutine.visibility = View.VISIBLE
-                        }
-                        adapter.updateList(habitItems)
+                                } else {
+                                    // 編集のFABボタンを表示
+                                    fabMain.visibility = View.VISIBLE
+                                    fabRoutine.visibility = View.VISIBLE
+                                }
+                                adapter.updateList(habitItems)
+
+
+
+                            }
+
+
+
+//                        // 単体メニューの型に変換する
+//                        menuSnapshots.forEach { menuDoc ->
+//                            val menu = menuDoc.toObject(TrainingMenuUi::class.java)
+//
+//
+//
+//                            // 取得した単体メニューのidに単体メニューの中身を対応させる
+//                            menuMap[menuDoc.id] = menu
+//                        }
+
+
+
                     }
             }
 

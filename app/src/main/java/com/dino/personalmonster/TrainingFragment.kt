@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+
+// トレーニングのマスターデータ
 data class TrainingMenu(
     var id: String = "",
 
@@ -30,12 +32,18 @@ data class TrainingMenu(
     var skillDesc: String ="",
     var skillName: String ="",
     var step: String ="",
+    )
+
+
+// ユーザー独自のトレーニング情報
+data class TrainingState(
+    var id: String = "",
     var habit: Boolean = false,
 
 
     // イフゼンプラン機能で追加
-    var triggerType: String = "",
     var triggerText: String = "",
+
 
     // 並び替え機能で追加
     var orderIndex: Int = 0,
@@ -43,10 +51,38 @@ data class TrainingMenu(
     // 時間情報機能で追加
     var isCompletedToday: Boolean? = null,
     var lastCompletedDate: String? = null,
-    var streakCount: Long? = null
+    var streakCount: Long? = null,
+
+    var parentRoutineId: String? = null
+
+)
 
 
-    )
+// 表示用で使うトレーニングデータ
+data class TrainingMenuUi(
+    val id: String = "",
+
+    var title: String = "",
+    var url : String = "",
+    var parameterKey: String = "",
+    var incrementValue: Int = 0,
+    var description: String = "",
+    var skillDesc: String ="",
+    var skillName: String ="",
+    var step: String ="",
+
+    // ユーザー独自情報
+    var habit: Boolean = false,
+
+    var triggerText: String = "",
+
+    var orderIndex: Int = 0,
+
+    var lastCompletedDate: String? = null,
+    var streakCount: Long? = null,
+
+    var parentRoutineId: String? = null
+)
 
 enum class ParameterType(val key: String, val label: String) {
     All("all", "すべて"),
@@ -130,46 +166,53 @@ class TrainingFragment : Fragment() {
 
         db.collection("trainingMenus")
             .get()
-            .addOnSuccessListener { documents ->
+            .addOnSuccessListener { masterDoc ->
                 Log.e("tag", "データ取得成功")
                 // 全ユーザー共通のメニューデータベースを取得
-                val masterList = documents.map {
+                val masterList = masterDoc.map {
                     val menu = it.toObject(TrainingMenu::class.java)
                     menu.id = it.id
                     menu
                 }
 
-                // ユーザーに汎用データベースをコピー
+                // マスターデータとユーザーのデータを統合ー
                 db.collection("results")
                     .document(user.uid)
                     .collection("trainingMenus")
                     .get()
-                    .addOnSuccessListener { documents ->
-                        val userMap = documents.map {
-                            val menu = it.toObject(TrainingMenu::class.java)
-                            menu.id = it.id
-                            menu
+                    .addOnSuccessListener { stateDoc ->
+                        val stateMap = stateDoc.map {
+                            val state = it.toObject(TrainingState::class.java)
+                            state.id = it.id
+                            state
                         }.associateBy { it.id }
 
 
-                        val mergedList = masterList.map { menu ->
-                            val userMenu = userMap[menu.id]
+                        val mergedList = masterList.map { master ->
 
-                            // そのIDの項目がユーザーデータベースに未登録なら新たにコピーする
-                            if (userMenu == null) {
-                                db.collection("results")
-                                    .document(user.uid)
-                                    .collection("trainingMenus")
-                                    .document(menu.id)
-                                    // マスターからコピーして、順序は-1で初期化する
-                                    .set(menu.copy(orderIndex = -1))
-                                Log.e("tag", "ユーザーデータにメニューがなかったので、新規メニューとして作成")
-                                menu
-                            } else {
-                                Log.e("tag", "ユーザーデータにメニューがあったので、既存のメニューを取り出しました")
-                                // ここでuserMapに対応したものを取り出すから、ユーザーの方のhabit＝trueで取り出されてPairになる。
-                                userMenu
-                            }
+                            val state = stateMap[master.id]
+
+                            TrainingMenuUi(
+                                id = master.id,
+
+                                title = master.title,
+                                url = master.url,
+                                parameterKey = master.parameterKey,
+                                incrementValue = master.incrementValue,
+                                description = master.description,
+                                skillDesc = master.skillDesc,
+                                skillName = master.skillName,
+                                step = master.step,
+
+                                triggerText = state?.triggerText?: "",
+                                habit = state?.habit ?: false,
+                                orderIndex = state?.orderIndex?: 0,
+                                streakCount = state?.streakCount,
+                                lastCompletedDate = state?.lastCompletedDate,
+                                parentRoutineId = state?.parentRoutineId
+                            )
+
+
                         }
 
 

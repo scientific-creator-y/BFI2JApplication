@@ -21,6 +21,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 
 class TrainingDetailActiivty : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -186,7 +187,7 @@ class TrainingDetailActiivty : AppCompatActivity() {
 
             if (user != null) {
 
-                val menuRef = db.collection("results")
+                val stateRef = db.collection("results")
                     .document(user.uid)
                     .collection("trainingMenus")
                     .document(menuId)
@@ -199,12 +200,22 @@ class TrainingDetailActiivty : AppCompatActivity() {
 
 
                 // フラグを変更
-                batch.update(menuRef, "habit", newValue) // 現在のture,falseを逆転
+                batch.update(stateRef, "habit", newValue) // 現在のture,falseを逆転
+//                batch.set(
+//                    stateRef,
+//                    mapOf("habit" to newValue),
+//                    SetOptions.merge()
+//                )
 
                 // 習慣から外すとき（今habitがtrueのとき）には親子関係解消
                 if (habit) {
                     // 子→親のidを消す
-                    batch.update(menuRef, "parentRoutineId", null)
+                    batch.update(stateRef, "parentRoutineId", null)
+//                    batch.set(
+//                        stateRef,
+//                        mapOf("parentRoutineId" to null),
+//                        SetOptions.merge()
+//                    )
 
                     // 親→子のidを消す
                     routineRef.get().addOnSuccessListener { snapshots ->
@@ -323,7 +334,7 @@ class TrainingDetailActiivty : AppCompatActivity() {
             .document(menuId)
             .get()
             .addOnSuccessListener { documentSnapshot ->
-                val menu = documentSnapshot.toObject(TrainingMenu::class.java)
+                val menu = documentSnapshot.toObject(TrainingMenuUi::class.java)
 
                 // Firestoreから取得してローカル変数を更新
                 habit = menu?.habit ?: false // Firestoreでのhabitを取得して（右辺）、habitフラグを更新（左辺）
@@ -539,7 +550,11 @@ class TrainingDetailActiivty : AppCompatActivity() {
             .document(user.uid)
             .collection("trainingMenus")
             .document(menuId)
-            .update("triggerText", trigger)
+//            .update("triggerText", trigger)
+            .set(
+                mapOf("triggerText" to trigger),
+                SetOptions.merge()
+            )
             .addOnSuccessListener {
 //                Log.i("習慣トリガーの保存", "習慣トリガーの保存成功：${trigger}")
             }
@@ -631,7 +646,12 @@ class TrainingDetailActiivty : AppCompatActivity() {
             }
 
             // 子 → 親id追加
-            batch.update(menuRef.document(menuId), "parentRoutineId", selectedRoutineId)
+//            batch.update(menuRef.document(menuId), "parentRoutineId", selectedRoutineId)
+            batch.set(
+                menuRef.document(menuId),
+                mapOf("parentRoutineId" to selectedRoutineId),
+                SetOptions.merge()
+            )
 
 
             batch.commit()
@@ -708,7 +728,11 @@ class TrainingDetailActiivty : AppCompatActivity() {
             .document(user.uid)
             .collection("trainingMenus")
             .document(menuId)
-            .update("parentRoutineId", newRoutineRef.id)
+//            .update("parentRoutineId", newRoutineRef.id)
+            .set(
+                mapOf("parentRoutineId" to newRoutineRef.id),
+                SetOptions.merge()
+            )
     }
 
 
