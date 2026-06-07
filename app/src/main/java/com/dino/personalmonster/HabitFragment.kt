@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.rpc.QuotaFailure
 import java.time.LocalDate
 
 
@@ -128,19 +129,24 @@ class HabitFragment : Fragment() {
                 intent.putExtra("routineId", routineId)
                 startActivity(intent)
             },
-            // メニュー（ルーティンor単体メニュー）を完了したときの処理
-            onMenuCompleteClick = { id, menu ->
+            // メニュー（単体メニュー）を完了したときの処理
+            onMenuCompleteClick = { positon, id, menu ->
+                // 処理中に切り替え
+                menu.isProcessing = true
+                adapter.notifyItemChanged(positon)
+
                 // 単体の達成処理を行う
                 repository.completeTraining(
                     menuId = id,
                     parameterKey = menu.parameterKey,
                     incrementValue = menu.incrementValue,
                     onSuccess = { result ->
+                        // 処理中から抜けて表示を達成済みに変更
+                        menu.isProcessing = false
+
+                        // 画面情報更新
                         loadHabit()
 
-//                        Log.i("渡ってきた結果", "${result.monsterName}")
-//                        Log.i("渡ってきた結果", "${result.popupColorRes}")
-//                        Log.i("渡ってきた結果", "${result.newLevel}")
 
 
                         // 達成のポップアップを出す
@@ -155,14 +161,47 @@ class HabitFragment : Fragment() {
                         )
 
                     },
-                    onFailure = {}
+                    onFailure = {
+                        menu.isProcessing = false
+                        loadHabit()
+
+                    }
                 )
             },
-            onRoutineCompleteClick = { routineItem ->
-                val dialog = ConfirmDialogFragment.newInstance("このルーティン内のすべてのアイテムを達成にしますか？", 8) { requestCode ->
-                    completeRoutine(routineItem)
+            // ルーティン内メニューを完了したときの処理
+            onRoutineCompleteClick = { position, routineItem ->
+                // ルーティン内が空なら処理を止める
+                if (routineItem.menuItems.isEmpty()) {
+                    Toast.makeText(requireContext(), "このルーティン内のアイテムはありません。。", Toast.LENGTH_LONG).show()
+
+                } else {
+                    // ルーティン内にあればダイアログを出す
+                    val dialog = ConfirmDialogFragment.newInstance("このルーティン内のすべてのアイテムを達成にしますか？", 8) { requestCode ->
+                        // ルーティンの処理中をオンにする
+                        routineItem.isProcessing = true
+                        adapter.notifyItemChanged(position)
+
+
+                        // 単体メニューごとに処理中に切り替える
+                        routineItem.menuItems.forEach { menuItem ->
+                            menuItem.data.isProcessing = true
+
+                            val menuPosition = adapter.currentList().indexOfFirst {
+                                it is HabitItem.menuItem && it.menuId == menuItem.menuId
+                            }
+
+                            if (menuPosition != -1) {
+                                adapter.notifyItemChanged(menuPosition)
+                            }
+
+
+                        }
+
+
+                        completeRoutine(routineItem)
+                    }
+                    dialog.show(parentFragmentManager, "ConfirmDialog")
                 }
-                dialog.show(parentFragmentManager, "ConfirmDialog")
 
             },
             onDeleteClick = { menuId ->
@@ -356,8 +395,9 @@ class HabitFragment : Fragment() {
                                             orderIndex = state.orderIndex,
                                             streakCount = state.streakCount,
                                             lastCompletedDate = state.lastCompletedDate,
-                                            parentRoutineId = state.parentRoutineId
+                                            parentRoutineId = state.parentRoutineId,
 
+//                                            isProcessing = false,
                                         )
 
                                         menuMap[masterDoc.id] = menu
@@ -765,7 +805,9 @@ class HabitFragment : Fragment() {
 
     // ルーティンから一括で達成処理
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun completeRoutine(routine: HabitItem.routineItem) {
+    private fun completeRoutine(
+        routine: HabitItem.routineItem
+    ) {
 
         // ルーティン内が空なら処理を止める
         if (routine.menuItems.isEmpty()) {
@@ -807,7 +849,6 @@ class HabitFragment : Fragment() {
 
                     // すべての達成処理が終わったら完了
                     if (completedCount == targets.size) {
-                        loadHabit()
 
                         // 集約処理
                         val aggregated = repository.aggregatedResult(results)
@@ -816,11 +857,19 @@ class HabitFragment : Fragment() {
                         repository.showPopupQueue(requireActivity(), aggregated)
 
 //                        Toast.makeText(requireContext(), "ルーティン内の${targets.size}個のアイテムを達成しました。", Toast.LENGTH_LONG).show()
+                        // 表示を戻す
+                        routine.isProcessing = false
+                        loadHabit()
+
                     }
 
 
                 },
-                onFailure = {}
+                onFailure = {
+                    routine.isProcessing = false
+
+                    loadHabit()
+                }
             )
         }
     }

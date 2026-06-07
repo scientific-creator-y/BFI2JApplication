@@ -193,7 +193,7 @@ class ResultDetailActivity : AppCompatActivity() {
                 "E-high",
                 R.string.tv_prof_e_high_title,
                 R.string.tv_prof_e_high_desc,
-                R.drawable.e_high_header,
+                R.drawable.header_001,
                 R.string.tv_prof_e_high_feature_title,
                 R.string.tv_prof_e_high_feature_desc,
                 R.string.tv_prof_e_high_feature_1_subtitle, R.string.tv_prof_e_high_feature_2_subtitle, R.string.tv_prof_e_high_feature_3_subtitle, R.string.tv_prof_e_high_feature_4_subtitle, R.string.tv_prof_e_high_feature_5_subtitle, R.string.tv_prof_e_high_feature_6_subtitle,
@@ -201,7 +201,7 @@ class ResultDetailActivity : AppCompatActivity() {
                 )
 
 
-            "E-low" -> ResultDetailActivity.ProfileData("E-low",R.string.tv_prof_e_low_title, R.string.tv_prof_e_low_desc,R.drawable.e_low_header,
+            "E-low" -> ResultDetailActivity.ProfileData("E-low",R.string.tv_prof_e_low_title, R.string.tv_prof_e_low_desc,R.drawable.header_011,
                 R.string.tv_prof_e_low_feature_title, R.string.tv_prof_e_low_feature_desc,
                 R.string.tv_prof_e_low_feature_1_subtitle, R.string.tv_prof_e_low_feature_2_subtitle, R.string.tv_prof_e_low_feature_3_subtitle, R.string.tv_prof_e_low_feature_4_subtitle, R.string.tv_prof_e_low_feature_5_subtitle, R.string.tv_prof_e_low_feature_6_subtitle,
                 R.string.tv_prof_e_low_feature_1_subdesc, R.string.tv_prof_e_low_feature_2_subdesc, R.string.tv_prof_e_low_feature_3_subdesc, R.string.tv_prof_e_low_feature_4_subdesc, R.string.tv_prof_e_low_feature_5_subdesc, R.string.tv_prof_e_low_feature_6_subdesc, )

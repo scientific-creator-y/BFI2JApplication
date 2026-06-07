@@ -25,8 +25,8 @@ sealed class HabitItem {
         var triggerText: String = "",
         val menuItems: MutableList<menuItem> = mutableListOf(),
         var isCompletedToday: Boolean = false,
-        var expanded: Boolean = true
-
+        var expanded: Boolean = true,
+        var isProcessing: Boolean = false,
 
     ): HabitItem()
 }
@@ -35,8 +35,8 @@ class HabitAdapter(
     private val showTriggerText: Boolean,
     private val onMenuClick: (String, TrainingMenuUi) -> Unit,
     private val onRoutineClick: (String) -> Unit,
-    private val onMenuCompleteClick: (String, TrainingMenuUi) -> Unit,
-    private val onRoutineCompleteClick: (HabitItem.routineItem) -> Unit,
+    private val onMenuCompleteClick: (Int, String, TrainingMenuUi) -> Unit,
+    private val onRoutineCompleteClick: (Int, HabitItem.routineItem) -> Unit,
     private val onDeleteClick: (String) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -185,19 +185,38 @@ class HabitAdapter(
         }
 
         // 達成ボタンUIの処理・達成済みの消込処理
-        if (isCompletedToday) {
+        if (item.data.isProcessing) {
+            holder.btComplete.isEnabled = false
+            holder.btComplete.text = "処理中…"
+        }
+        else if (isCompletedToday) {
             holder.btComplete.isEnabled = false
             holder.btComplete.text = "達成済み"
             holder.tvTitle.paint.isStrikeThruText = true
-        } else {
+        }
+        else {
             holder.btComplete.isEnabled = true
             holder.btComplete.text = "達成！"
             holder.tvTitle.paint.isStrikeThruText = false
         }
+//        if (isCompletedToday) {
+//            holder.btComplete.isEnabled = false
+//            holder.btComplete.text = "達成済み"
+//            holder.tvTitle.paint.isStrikeThruText = true
+//        } else {
+//            holder.btComplete.isEnabled = true
+//            holder.btComplete.text = "達成！"
+//            holder.tvTitle.paint.isStrikeThruText = false
+//        }
 
         // 完了ボタンのクリック処理をコールバック
         holder.btComplete.setOnClickListener {
-            onMenuCompleteClick(item.menuId, item.data)
+            // 2回以上連続タップの抑制
+            holder.btComplete.isEnabled = false
+            holder.btComplete.text = "処理中"
+
+            // 押されたらその行数、id、データを渡す
+            onMenuCompleteClick(holder.bindingAdapterPosition, item.menuId, item.data)
         }
 
         // ハンドルタッチの処理
@@ -271,23 +290,39 @@ class HabitAdapter(
 
 
         // ルーティンが押されたときに遷移する処理
-//        holder.itemView.setOnClickListener {
         holder.tvRoutineTitle.setOnClickListener {
             if (!isEditMode) onRoutineClick(item.routineId)
         }
 
+
         // ルーティンの達成が押されたときに一括達成する処理
-        holder.btnComplete.visibility = if (isEditMode) View.GONE else View.VISIBLE
         holder.btnComplete.setOnClickListener {
-            onRoutineCompleteClick(item)
+            // 押された瞬間に処理中、無効
+//            holder.btnComplete.isEnabled = false
+//            holder.btnComplete.text = "処理中"
+
+            onRoutineCompleteClick(holder.bindingAdapterPosition, item)
         }
 
-        // ルーティン内がすべて達成済みなら消込処理
-        if (item.isCompletedToday) {
+
+        // ルーティンの達成が押されたときにUIを切り替える
+        if (item.isProcessing) {
             holder.btnComplete.isEnabled = false
-            holder.btnComplete.text = "すべて達成"
+            holder.btnComplete.text = "処理中"
+        }
+        else if (item.isCompletedToday) {
+            holder.btnComplete.isEnabled = false
+            holder.btnComplete.text = "達成済み"
             holder.tvRoutineTitle.paint.isStrikeThruText = true
         }
+        else {
+            holder.btnComplete.isEnabled = true
+            holder.btnComplete.text = "すべて達成！"
+        }
+
+        // 編集モードならボタンは非表示
+        holder.btnComplete.visibility = if (isEditMode) View.GONE else View.VISIBLE
+
 
 
     }

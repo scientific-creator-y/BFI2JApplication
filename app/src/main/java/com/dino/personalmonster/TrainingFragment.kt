@@ -90,7 +90,11 @@ data class TrainingMenuUi(
     var lastCompletedDate: String? = null,
     var streakCount: Long? = null,
 
-    var parentRoutineId: String? = null
+    var parentRoutineId: String? = null,
+
+    // 処理中かどうかのフラグ
+    var isProcessing: Boolean = false,
+
 )
 
 enum class ParameterType(val key: String, val label: String) {
@@ -356,7 +360,9 @@ class TrainingFragment : Fragment() {
                                 orderIndex = state?.orderIndex?: 0,
                                 streakCount = state?.streakCount,
                                 lastCompletedDate = state?.lastCompletedDate,
-                                parentRoutineId = state?.parentRoutineId
+                                parentRoutineId = state?.parentRoutineId,
+
+
                             )
 
 
