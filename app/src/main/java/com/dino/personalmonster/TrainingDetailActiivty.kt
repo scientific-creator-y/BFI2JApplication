@@ -3,9 +3,12 @@ package com.dino.personalmonster
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -16,14 +19,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
+import com.dino.personalmonster.data.InfoContent
+import com.dino.personalmonster.data.TrainingTag
 import com.dino.personalmonster.ui.InsetsUtil
+import com.dino.personalmonster.ui.ShowInfoUtil
+import com.google.android.flexbox.FlexboxLayout
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import org.w3c.dom.Text
+import java.time.chrono.JapaneseEra
+import java.time.chrono.JapaneseEra.values
 
 class TrainingDetailActiivty : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var menuId: String
@@ -31,11 +42,13 @@ class TrainingDetailActiivty : AppCompatActivity() {
     private lateinit var btAddHabit : MaterialButton
     private lateinit var btnComplete: Button
     private lateinit var title : String
+    private lateinit var layoutTags: FlexboxLayout
 
 
     // 後半レイヤー（習慣化詳細設定）関連の変数
     private lateinit var layoutHabitSettings : LinearLayout
     private lateinit var etTrigger: EditText
+    private lateinit var etPractice: EditText
     private lateinit var tvStreak: TextView
 
     // 時間情報関連の変数
@@ -68,6 +81,7 @@ class TrainingDetailActiivty : AppCompatActivity() {
         // 後半レイヤーのUI取得
         layoutHabitSettings = findViewById<LinearLayout>(R.id.layoutHabitSetting)
         etTrigger = findViewById<EditText>(R.id.etTrigger)
+        etPractice = findViewById<EditText>(R.id.etPractice)
         tvStreak = findViewById<TextView>(R.id.tvStreak)
         val btnManageRoutine = findViewById<Button>(R.id.btnManageRoutine)
 
@@ -76,10 +90,14 @@ class TrainingDetailActiivty : AppCompatActivity() {
         val url = intent.getStringExtra("url") ?: ""
         val parameterKey = intent.getStringExtra("parameterKey") ?: ""
         val description = intent.getStringExtra("description") ?: ""
-        val skillName = intent.getStringExtra("skillName") ?: ""
-        val skillDesc = intent.getStringExtra("skillDesc") ?: ""
+//        val skillName = intent.getStringExtra("skillName") ?: ""
+//        val skillDesc = intent.getStringExtra("skillDesc") ?: ""
         val step = intent.getStringExtra("step") ?: ""
         val incrementValue = intent.getIntExtra("incrementValue", 1)
+
+        val guide = intent.getStringExtra("guide") ?:""
+        val tags: List<String> = intent.getStringArrayListExtra("tags") ?:arrayListOf()
+//        Log.i("タグの確認", "タグ：${tags}、タグの数：${tags.size} 、空かどうか：${tags.isEmpty()}")
 
 //        habit = intent.getBooleanExtra("habit", false)
 //        Log.i("tag", "選ばれたメニューのhabitは${habit}")
@@ -91,14 +109,26 @@ class TrainingDetailActiivty : AppCompatActivity() {
         val tvMenuTitle = findViewById<TextView>(R.id.tvMenuTitle)
         val tvMenuDes = findViewById<TextView>(R.id.tvMenuDes)
         val tvMenuStep = findViewById<TextView>(R.id.tvMenuStep)
-        val tvSkillName = findViewById<TextView>(R.id.tvSkillName)
+//        val tvSkillName = findViewById<TextView>(R.id.tvSkillName)
+
+        layoutTags = findViewById<FlexboxLayout>(R.id.layoutTags)
+        val tvNoTag = findViewById<TextView>(R.id.tvNoTag)
+
+
+        // 習慣化設定のトリガーなど
+        val ivTriggerInfo = findViewById<ImageView>(R.id.ivTriggerInfo)
+        val ivPracticeInfo = findViewById<ImageView>(R.id.ivPracticeInfo)
+
+        val rootMenuGuide = findViewById<LinearLayout>(R.id.rootMenuGuide)
+        val tvMenuGuide = findViewById<TextView>(R.id.tvMenuGuide)
+
+
+
 
         val tvSkillParameter = findViewById<TextView>(R.id.tvSkillParameter)
 //        val tvSkillDesc = findViewById<TextView>(R.id.tvSkillDesc)
 //        val ivSkillIcon = findViewById<ImageView>(R.id.ivSkillIcon)
 
-
-        // UI（ボタン）の取得
 //        val btBlogLink = findViewById<Button>(R.id.btBlogLink)
         btnComplete = findViewById<Button>(R.id.btnComplete)
         btAddHabit = findViewById<MaterialButton>(R.id.btAddHabit)
@@ -112,8 +142,32 @@ class TrainingDetailActiivty : AppCompatActivity() {
         tvMenuTitle.text = title
         tvMenuDes.text = description
         tvMenuStep.text = step
-        tvSkillName.text = skillName
+//        tvSkillName.text = skillName
 //        tvSkillDesc.text = skillDesc
+
+        // 実践手順があれば表示する
+        rootMenuGuide.visibility = View.GONE
+        if (guide.isNotBlank()) {
+            rootMenuGuide.visibility = View.VISIBLE
+            tvMenuGuide.text = guide
+        }
+
+        // タグがあれば表示する
+        tvNoTag.visibility = View.GONE
+
+
+        if (tags.isEmpty()) {
+//            Log.i("タグがあるかの確認", "isEmpty=${tags.isEmpty()}")
+            tvNoTag.visibility = View.VISIBLE
+        } else {
+            layoutTags.removeAllViews()
+            tags.forEach { key ->
+                addTagView(TrainingTag.fromKey(key)?.displayName)
+            }
+        }
+
+
+
 
         // アイコンを表示する
         when (parameterKey) {
@@ -161,6 +215,8 @@ class TrainingDetailActiivty : AppCompatActivity() {
 
             }
         }
+
+
 
         // 現在の状態を参照してボタンの表示を切り替え
         loadHabitStatus()
@@ -296,6 +352,14 @@ class TrainingDetailActiivty : AppCompatActivity() {
                 saveTriggerToFirebase(triggerText)
             }
         }
+        // エディットテキストのフォーカスアウト時に保存の処理を実行
+        etPractice.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus && habit) {
+//                Log.i("フォーカス", "hasFocus = $hasFocus , habit = $habit")
+                val practiceText = etPractice.text.toString().trim()
+                savePracticeToFirebase(practiceText)
+            }
+        }
 
 
 
@@ -308,6 +372,24 @@ class TrainingDetailActiivty : AppCompatActivity() {
         showCurrentRoutine()
 
 
+        // 情報アイコン
+        ivTriggerInfo.setOnClickListener {
+            val content  = InfoContent(
+                title = "習慣に取り組むキッカケ",
+                message = "「習慣化の例」を参考に、習慣に取り組むキッカケを具体的に決めておきましょう。具体的なタイミングを決めておくと習慣化に成功しやすいです。",
+                url = "https://app.notion.com/p/373d30cb9fca804ea91eddd69ae0de8b?source=copy_link"
+            )
+            ShowInfoUtil.showInfoDialog(this, content)
+        }
+        ivPracticeInfo.setOnClickListener {
+            val content  = InfoContent(
+                title = "習慣として実践する内容",
+                message = "「習慣化の例」を参考に、自分が取り組む内容を決めておきましょう。数値や基準を盛り込んで達成したかどうかが一発でわかるようにしておくといいです。\n\nここで決めた内容は習慣リストに表示されます。",
+                url = "https://app.notion.com/p/373d30cb9fca80938bd1c074a3271643?source=copy_link"
+            )
+            ShowInfoUtil.showInfoDialog(this, content)
+        }
+
     }
 
     // 戻るボタンでもトリガーテキストを保存
@@ -317,11 +399,37 @@ class TrainingDetailActiivty : AppCompatActivity() {
         if (habit) {
             val triggerText = etTrigger.text.toString().trim()
             saveTriggerToFirebase(triggerText)
+
+            val practiceText = etPractice.text.toString().trim()
+            savePracticeToFirebase(practiceText)
         }
     }
 
 
 
+    // タグを表示する
+    private fun addTagView(tag: String?) {
+//        Log.i("タグ生成", "追加するタグ：$tag")
+        val tv = TextView(this)
+
+        tv.text = tag
+        tv.textSize = 16f
+        tv.setTextColor(
+            ContextCompat.getColor(this, R.color.text_primary)
+        )
+//        tv.setBackgroundResource(R.drawable.bg_ic_tag)
+//        tv.setPadding(4, 4, 4, 4)
+
+        val params = FlexboxLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        params.marginEnd = 16
+        tv.layoutParams = params
+
+        layoutTags.addView(tv)
+
+    }
 
 
 
@@ -364,6 +472,10 @@ class TrainingDetailActiivty : AppCompatActivity() {
                 // 習慣トリガーのテキストを取得・反映
                 val triggerText = menu?.triggerText ?:""
                 etTrigger.setText(triggerText)
+
+                // 実践内容のテキストを取得・反映
+                val practiceText = menu?.practiceText ?:""
+                etPractice.setText(practiceText)
 
                 // 習慣連続達成のテキストを反映
                 tvStreak.text = "連続達成日数：${streakCount}日"
@@ -563,6 +675,27 @@ class TrainingDetailActiivty : AppCompatActivity() {
 
             }
     }
+
+    // 自分の実践内容に書いたテキストをFirestoreに保存する処理
+    private fun savePracticeToFirebase(practice: String) {
+        val user = auth.currentUser ?: return
+
+        db.collection("results")
+            .document(user.uid)
+            .collection("trainingMenus")
+            .document(menuId)
+            .update("practiceText", practice)
+
+            .addOnSuccessListener {
+//                Log.i("習慣トリガーの保存", "習慣トリガーの保存成功：${trigger}")
+            }
+            .addOnFailureListener { exception ->
+//                Log.i("習慣トリガーの保存", "習慣トリガーの保存失敗：${exception.message}")
+
+            }
+    }
+
+
 
     // ルーティン管理のダイアログの処理
     private fun showRoutineManageDialog(menuId: String) {

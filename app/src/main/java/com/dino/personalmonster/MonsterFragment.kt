@@ -104,7 +104,7 @@ class MonsterFragment : Fragment() {
             TypeItem("氷タイプ", "ice"),
 
             TypeItem("雷タイプ", "thunder"),
-            TypeItem("電磁タイプ", "magnet"),
+            TypeItem("光タイプ", "light"),
             TypeItem("鉄タイプ", "metal"),
 
             )

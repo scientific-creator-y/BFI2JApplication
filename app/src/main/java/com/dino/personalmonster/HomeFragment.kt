@@ -15,6 +15,8 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dino.personalmonster.data.InfoContent
+import com.dino.personalmonster.ui.ShowInfoUtil
 import com.github.mikephil.charting.charts.RadarChart
 import com.github.mikephil.charting.data.RadarData
 import com.github.mikephil.charting.data.RadarDataSet
@@ -229,21 +231,21 @@ class HomeFragment : Fragment() {
         val ivTypeInfoIcon = view.findViewById<ImageView>(R.id.ivTypeInfoIcon)
 
         ivInfoIcon.setOnClickListener {
-            val content = MainActivity2.InfoContent(
+            val content = InfoContent(
                 title = "育成中モンスター",
                 message = "あなたが性格スキルを鍛えると、ここにセットされているパソモンに経験値が入ります。自分が育てたいパソモンをセットしておきましょう。",
                 imageResource = null
             )
-            showInfoDialog(content)
+            ShowInfoUtil.showInfoDialog(requireContext(), content)
         }
 
         ivTypeInfoIcon.setOnClickListener {
-            val content = MainActivity2.InfoContent(
+            val content = InfoContent(
                 title = "タイプについて",
                 message = "タイプは診断されたときの性格によって決まります。",
                 imageResource = R.drawable.dialog_info_type_transparent
             )
-            showInfoDialog(content)
+            ShowInfoUtil.showInfoDialog(requireContext(), content)
         }
 
         // リサイクラービューを取得
@@ -404,7 +406,7 @@ class HomeFragment : Fragment() {
             "ice" -> { ivTypeIcon.setImageResource(R.drawable.icon_ice) }
 
             "thunder" -> { ivTypeIcon.setImageResource(R.drawable.icon_thunder) }
-            "magnet" -> { ivTypeIcon.setImageResource(R.drawable.icon_magnet) }
+            "light" -> { ivTypeIcon.setImageResource(R.drawable.icon_light) }
             "metal" -> { ivTypeIcon.setImageResource(R.drawable.icon_metal) }
         }
     }
@@ -457,8 +459,8 @@ class HomeFragment : Fragment() {
 //                "thunder" -> {
 //                    ivTypeIconO.setImageResource(R.drawable.icon_thunder)
 //                }
-//                "magnet" -> {
-//                    ivTypeIconO.setImageResource(R.drawable.icon_magnet)
+//                "light" -> {
+//                    ivTypeIconO.setImageResource(R.drawable.icon_light)
 //                }
 //                "metal" -> {
 //                    ivTypeIconO.setImageResource(R.drawable.icon_metal)
@@ -698,7 +700,7 @@ class HomeFragment : Fragment() {
     }
 
     // 情報を出す処理
-    private fun showInfoDialog(content: MainActivity2.InfoContent) {
+    private fun showInfoDialog(content: InfoContent) {
         if (content.imageResource == null) {
             AlertDialog.Builder(requireContext())
                 .setTitle(content.title)

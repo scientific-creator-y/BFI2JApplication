@@ -14,7 +14,7 @@
     android:padding="16dp"
     >
 
-<!--    トレーニングメニューの習慣トリガー-->
+    <!--    トレーニングメニューの習慣トリガー-->
     <TextView
         android:id="@+id/tvTrigger"
         android:layout_width="match_parent"
@@ -24,21 +24,21 @@
         android:visibility="gone"
         android:paddingBottom="2dp"/>
 
- <!--        トレーニングメニューの項目-->
+    <!--        トレーニングメニューの項目-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
-<!--        ドラッグハンドル-->
+        <!--        ドラッグハンドル-->
         <ImageView
             android:id="@+id/dragHandle"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_handle"
             android:visibility="gone"/>
-<!--        チェックボックス-->
+        <!--        チェックボックス-->
         <CheckBox
             android:id="@+id/cbTrainingCheckBox"
             android:layout_width="wrap_content"
@@ -46,18 +46,17 @@
             android:visibility="gone"/>
 
 
-<!--        習慣タイトル-->
+        <!--        習慣タイトル-->
         <TextView
             android:id="@+id/tvTrainingTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="aaaaaaa"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
 
-<!--        削除ボタン-->
+        <!--        削除ボタン-->
         <ImageView
             android:id="@+id/btnDelete"
             android:layout_width="36dp"
@@ -68,46 +67,19 @@
 
     </LinearLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvTrainingDescription"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="14sp"-->
-<!--        android:paddingTop="4dp"-->
-<!--        android:paddingBottom="8dp"/>-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvTrainingDescription"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textSize="14sp"-->
+    <!--        android:paddingTop="4dp"-->
+    <!--        android:paddingBottom="8dp"/>-->
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnComplete"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="4dp"
-        >
-
-
-        <TextView
-            android:id="@+id/tvParameterIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="社交力"
-            style="@style/Body"
-            android:textColor="@color/white"
-            android:background="@drawable/bg_ic_social"
-            android:padding="4dp"
-            android:layout_marginStart="4dp"
-            />
-        <TextView
-            android:id="@+id/tvHabitIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="習慣登録中"
-            style="@style/Body"
-            android:textColor="@color/white"
-            android:background="@drawable/bg_ic_habit"
-            android:padding="4dp"
-            android:layout_marginStart="4dp"
-            />
-
-
-    </LinearLayout>
+        style="@style/Button.positive"
+        android:text="@string/btn_complete"/>
 </LinearLayout>

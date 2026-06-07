@@ -2,7 +2,9 @@ package com.dino.personalmonster
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -37,14 +39,44 @@ class SignUpActivity : AppCompatActivity() {
 
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPassword = findViewById<EditText>(R.id.etPassword)
+        val etPasswordConfirm = findViewById<EditText>(R.id.etPasswordConfirm)
         val btnSighUp = findViewById<Button>(R.id.btnSignUp)
+        val cbShowPassword = findViewById<CheckBox>(R.id.cbShowPassword)
 
         val tvMoveLogin = findViewById<TextView>(R.id.tvMoveLogin)
+
+        // パスワードの表示処理
+        cbShowPassword.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                // チェックされていたら見せる
+                etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                etPasswordConfirm.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            } else {
+                // チェックされていなかったら見せない
+                etPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                etPasswordConfirm.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+
+            etPassword.setSelection(etPassword.text.length)
+            etPasswordConfirm.setSelection(etPasswordConfirm.text.length)
+
+        }
+
 
         // アカウント作成処理
         btnSighUp.setOnClickListener {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
+            val passwordConfirm = etPasswordConfirm.text.toString().trim()
+
+            if (password.length < 6) {
+                etPassword.error = "6文字以上で入力してください"
+                return@setOnClickListener
+            }
+            if (password != passwordConfirm) {
+                etPasswordConfirm.error = "パスワードが一致しません"
+                return@setOnClickListener
+            }
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 auth.createUserWithEmailAndPassword(email, password)
@@ -75,7 +107,7 @@ class SignUpActivity : AppCompatActivity() {
                     }
             }
             else {
-                Toast.makeText(this, "メールアドレスとパスワードを入力してください。", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "メールアドレスとパスワードを入力してください", Toast.LENGTH_LONG).show()
             }
         }
 

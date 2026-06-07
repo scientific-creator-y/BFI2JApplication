@@ -34,9 +34,25 @@
         android:layout_height="wrap_content"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
-        android:layout_marginBottom="16dp"/>
+        />
+
 
     <!-- パスワード確認 -->
+    <EditText
+        android:id="@+id/etPasswordConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="パスワード（確認）"
+        android:inputType="textPassword"
+        />
+    <CheckBox
+        android:id="@+id/cbShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="パスワードを表示"
+        android:layout_marginBottom="16dp"
+        />
+
 
 
     <!-- サインアップボタン -->
@@ -48,6 +64,24 @@
         android:text="登録"
         android:layout_marginBottom="16dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="もしくは"
+        style="@style/Caption"
+        />
+
+    <Button
+        android:id="@+id/btnLinkGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Button.positive"
+        android:text="Googleと連携"
+        android:layout_marginBottom="16dp"/>
+
+
 
     <TextView
         android:layout_width="match_parent"

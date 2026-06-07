@@ -111,9 +111,11 @@ class HabitFragment : Fragment() {
                 intent.putExtra("incrementValue", menu.incrementValue)
 
                 intent.putExtra("description", menu.description)
-                intent.putExtra("skillDesc", menu.skillDesc)
-                intent.putExtra("skillName", menu.skillName)
+//                intent.putExtra("skillDesc", menu.skillDesc)
+//                intent.putExtra("skillName", menu.skillName)
                 intent.putExtra("step", menu.step)
+                intent.putExtra("guide", menu.guide)
+                intent.putStringArrayListExtra("tags", ArrayList(menu.tags))
 
                 // 習慣化を識別するためにアイテムのIDとブーリンも運ぶ
     //            intent.putExtra("habit", menu.habit)
@@ -344,11 +346,12 @@ class HabitFragment : Fragment() {
                                             parameterKey = master.parameterKey,
                                             incrementValue = master.incrementValue,
                                             description = master.description,
-                                            skillDesc = master.skillDesc,
-                                            skillName = master.skillName,
                                             step = master.step,
+                                            guide = master.guide,
+                                            tags = master.tags,
 
                                             triggerText = state.triggerText,
+                                            practiceText = state.practiceText,
                                             habit = state.habit,
                                             orderIndex = state.orderIndex,
                                             streakCount = state.streakCount,

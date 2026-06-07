@@ -29,9 +29,11 @@ data class TrainingMenu(
     var parameterKey: String = "",
     var incrementValue: Int = 0,
     var description: String = "",
-    var skillDesc: String ="",
-    var skillName: String ="",
+//    var skillDesc: String ="",
+//    var skillName: String ="",
+    var guide: String = "",
     var step: String ="",
+    var tags: List<String> = emptyList(),
     )
 
 
@@ -43,6 +45,7 @@ data class TrainingState(
 
     // イフゼンプラン機能で追加
     var triggerText: String = "",
+    var practiceText: String = "",
 
 
     // 並び替え機能で追加
@@ -67,14 +70,20 @@ data class TrainingMenuUi(
     var parameterKey: String = "",
     var incrementValue: Int = 0,
     var description: String = "",
-    var skillDesc: String ="",
-    var skillName: String ="",
+//    var skillDesc: String ="",
+//    var skillName: String ="",
     var step: String ="",
+    var tags: List<String> = emptyList(),
+
+
+    var guide: String = "",
 
     // ユーザー独自情報
     var habit: Boolean = false,
 
     var triggerText: String = "",
+    var practiceText: String = "",
+
 
     var orderIndex: Int = 0,
 
@@ -159,73 +168,20 @@ class TrainingFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = "全トレーニングリスト"
 
 
-        // データベースからデータを取得
+        // UI取得
+        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTraining)
+
+        // 初期化
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser ?: return
 
-        db.collection("trainingMenus")
-            .get()
-            .addOnSuccessListener { masterDoc ->
-                Log.e("tag", "データ取得成功")
-                // 全ユーザー共通のメニューデータベースを取得
-                val masterList = masterDoc.map {
-                    val menu = it.toObject(TrainingMenu::class.java)
-                    menu.id = it.id
-                    menu
-                }
-
-                // マスターデータとユーザーのデータを統合ー
-                db.collection("results")
-                    .document(user.uid)
-                    .collection("trainingMenus")
-                    .get()
-                    .addOnSuccessListener { stateDoc ->
-                        val stateMap = stateDoc.map {
-                            val state = it.toObject(TrainingState::class.java)
-                            state.id = it.id
-                            state
-                        }.associateBy { it.id }
-
-
-                        val mergedList = masterList.map { master ->
-
-                            val state = stateMap[master.id]
-
-                            TrainingMenuUi(
-                                id = master.id,
-
-                                title = master.title,
-                                url = master.url,
-                                parameterKey = master.parameterKey,
-                                incrementValue = master.incrementValue,
-                                description = master.description,
-                                skillDesc = master.skillDesc,
-                                skillName = master.skillName,
-                                step = master.step,
-
-                                triggerText = state?.triggerText?: "",
-                                habit = state?.habit ?: false,
-                                orderIndex = state?.orderIndex?: 0,
-                                streakCount = state?.streakCount,
-                                lastCompletedDate = state?.lastCompletedDate,
-                                parentRoutineId = state?.parentRoutineId
-                            )
-
-
-                        }
-
-
-                        adapter.updateList(mergedList)
-                    }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("tag", "データ取得失敗：${exception.message}")
-            }
+        // トレーニングメニューを読み込んでユーザーのデータを同期
+        syncTrainingMenus {
+            loadTrainingMenus()
+        }
 
 
         // リサイクラービューでリストを表示
-        recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewTraining)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         adapter = TrainingAdapter(
@@ -239,9 +195,13 @@ class TrainingFragment : Fragment() {
                 intent.putExtra("incrementValue", menu.incrementValue)
 
                 intent.putExtra("description", menu.description)
-                intent.putExtra("skillDesc", menu.skillDesc)
-                intent.putExtra("skillName", menu.skillName)
+//                intent.putExtra("skillDesc", menu.skillDesc)
+//                intent.putExtra("skillName", menu.skillName)
                 intent.putExtra("step", menu.step)
+
+                intent.putExtra("guide", menu.guide)
+                intent.putStringArrayListExtra("tags", ArrayList(menu.tags))
+
 
                 // 習慣化を識別するためにアイテムのIDとブーリンも運ぶ
 
@@ -294,6 +254,121 @@ class TrainingFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
+
+        
+
+
+
+
+    }
+
+    // トレーニングのマスターデータから取得する処理
+    private fun syncTrainingMenus(onComplete: () -> Unit) {
+        val userId = auth.currentUser?.uid
+
+        if (userId != null) {
+            val userMenus = db.collection("results")
+                .document(userId)
+                .collection("trainingMenus")
+
+            db.collection("trainingMenus")
+                .get()
+                .addOnSuccessListener { masterSnapshot ->
+                    userMenus.get()
+                        .addOnSuccessListener { userSnapshot ->
+                            val existingIds = userSnapshot.documents.map { it.id }.toSet()
+
+                            val batch = db.batch()
+
+                            masterSnapshot.documents.forEach { masterDoc ->
+                                if (!existingIds.contains(masterDoc.id)) {
+                                    batch.set(
+                                        userMenus.document(masterDoc.id),
+                                        mapOf(
+                                            "habit" to false,
+                                            "orderIndex" to 0
+                                        )
+                                    )
+                                }
+                            }
+
+                            batch.commit()
+                                .addOnSuccessListener {
+                                    onComplete()
+                                }
+                        }
+                }
+        }
+
+    }
+
+    // トレーニング一覧をリサイクラービューに表示する処理
+    private fun loadTrainingMenus() {
+        // データベースからデータを取得
+
+        val user = auth.currentUser ?: return
+
+        db.collection("trainingMenus")
+            .get()
+            .addOnSuccessListener { masterDoc ->
+                // 全ユーザー共通のメニューデータベースを取得
+                val masterList = masterDoc.map {
+                    val menu = it.toObject(TrainingMenu::class.java)
+                    menu.id = it.id
+//                    Log.i("タグ確認", "${menu.title} : ${menu.tags}")
+
+                    menu
+
+                }
+
+                // マスターデータとユーザーのデータを統合ー
+                db.collection("results")
+                    .document(user.uid)
+                    .collection("trainingMenus")
+                    .get()
+                    .addOnSuccessListener { stateDoc ->
+                        val stateMap = stateDoc.map {
+                            val state = it.toObject(TrainingState::class.java)
+                            state.id = it.id
+                            state
+                        }.associateBy { it.id }
+
+
+                        val mergedList = masterList.map { master ->
+
+                            val state = stateMap[master.id]
+
+                            TrainingMenuUi(
+                                id = master.id,
+
+                                title = master.title,
+                                url = master.url,
+                                parameterKey = master.parameterKey,
+                                incrementValue = master.incrementValue,
+                                description = master.description,
+                                step = master.step,
+
+                                guide = master.guide,
+                                tags = master.tags,
+
+                                triggerText = state?.triggerText?: "",
+                                habit = state?.habit ?: false,
+                                orderIndex = state?.orderIndex?: 0,
+                                streakCount = state?.streakCount,
+                                lastCompletedDate = state?.lastCompletedDate,
+                                parentRoutineId = state?.parentRoutineId
+                            )
+
+
+                        }
+
+
+                        adapter.updateList(mergedList)
+                    }
+            }
+            .addOnFailureListener { exception ->
+                Log.e("tag", "データ取得失敗：${exception.message}")
+            }
 
 
 

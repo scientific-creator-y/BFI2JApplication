@@ -95,7 +95,7 @@ class HabitAdapter(
         val inflater = LayoutInflater.from(parent.context)
 
         return if (viewType == TYPE_MENU) {
-            val view = inflater.inflate(R.layout.training_item, parent, false)
+            val view = inflater.inflate(R.layout.item_habit, parent, false)
             MenuViewHolder(view)
         } else {
             val view = inflater.inflate(R.layout.routine_item, parent,false)
@@ -134,7 +134,12 @@ class HabitAdapter(
 
 
         // 習慣のタイトルのテキストのUIと紐づける
-        holder.tvTitle.text = item.data.title
+        if(item.data.practiceText.isBlank()) {
+            // 実践内容を書いていなかったらデフォルトテキスト
+            holder.tvTitle.text = item.data.title
+        } else {
+            holder.tvTitle.text = item.data.practiceText
+        }
 
         // ルーティン内ならインデント
         if (item.parentRoutineId != null) {

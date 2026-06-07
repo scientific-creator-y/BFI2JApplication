@@ -16,6 +16,7 @@
     <color name="explore_color">#FB8C00 </color>
     <color name="hp_color">#EC407A</color>
 
+
     <!-- ボタン用の薄めカラー -->
     <color name="social_light">#FF8A65</color>
     <color name="harmony_light">#66BB6A</color>
@@ -23,8 +24,12 @@
     <color name="mental_light">#BA68C8</color>
     <color name="explore_light">#FFCC80</color>
 
-<!--    アプリのベースカラー-->
+<!--    アプリのベースカラー・その他カラー-->
     <color name="primary">#FF6F00</color>
+
+    <color name="tag">#666666</color>
+
+
 
 <!--    文字-->
     <color name="text_primary">#222222</color>

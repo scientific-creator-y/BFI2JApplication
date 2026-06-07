@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,6 +33,42 @@
         android:layout_marginBottom="16dp"
         style="@style/Body"/>
 
+    <!--    実践の手順のブロック-->
+    <LinearLayout
+        android:id="@+id/rootMenuGuide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        >
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/SubTitle"
+            android:text="実践の手順："/>
+
+<!--        </LinearLayout>-->
+
+        <TextView
+            android:id="@+id/tvMenuGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.実践の手順\n2.実践の手順"
+            style="@style/Body"
+            android:layout_marginBottom="16dp"
+            />
+
+
+    </LinearLayout>
+
 <!--    習慣例のブロック-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,11 +78,14 @@
         android:background="#F5F5F5"
         android:layout_marginBottom="16dp"
         >
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="習慣化の例："
             style="@style/SubTitle"/>
+
+
         <TextView
             android:id="@+id/tvMenuStep"
             android:layout_width="match_parent"
@@ -66,6 +105,8 @@
     </LinearLayout>
 
 
+
+
 <!--        育成情報のブロック-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,28 +123,28 @@
             style="@style/SubTitle"/>
 
 <!--        スキル名-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            >-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="●トレーニング名："
-                style="@style/Body"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="●トレーニング名："-->
+<!--                style="@style/Body"/>-->
 
-            <TextView
-                android:id="@+id/tvSkillName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="呼吸瞑想"
-                style="@style/Body"
-                />
+<!--            <TextView-->
+<!--                android:id="@+id/tvSkillName"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="呼吸瞑想"-->
+<!--                style="@style/Body"-->
+<!--                />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
 <!--        獲得スキル-->
         <LinearLayout
@@ -118,8 +159,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="●獲得できる経験値："
-                style="@style/Body"
-                android:layout_marginTop="8dp"/>
+                style="@style/BodyNoMargin"
+                />
 
 <!--            <ImageView-->
 <!--                android:id="@+id/ivSkillIcon"-->
@@ -133,11 +174,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="社交力"
-                style="@style/Body"
+                style="@style/BodyNoMargin"
                 android:textColor="@color/white"
                 android:background="@drawable/bg_ic_social"
                 android:padding="4dp"
-                android:layout_marginTop="8dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BodyTitleNoMargin"
+                android:text="●タグ："/>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/layoutTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:flexWrap="wrap"/>
+
+            <TextView
+                android:id="@+id/tvNoTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="（所属なし）"
+                style="@style/BodyNoMargin"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -174,16 +239,57 @@
                 />
 
 <!--            習慣のきっかけ-->
-            <TextView
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="実践するキッカケを設定："
-                style="@style/Body"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="実践するキッカケを設定："
+                    style="@style/Body"/>
+                <ImageView
+                    android:id="@+id/ivTriggerInfo"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_info"/>
+
+            </LinearLayout>
+
+
             <EditText
                 android:id="@+id/etTrigger"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="例：寝る前に、電車に乗ったら"
+                android:background="@android:drawable/edit_text"
+                android:inputType="textCapSentences"
+                android:layout_marginBottom="8dp"
+                />
+<!--            習慣の内容-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="自分が実践する内容："
+                    style="@style/Body"/>
+
+                <ImageView
+                    android:id="@+id/ivPracticeInfo"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_info"/>
+            </LinearLayout>
+            <EditText
+                android:id="@+id/etPractice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="何をするか"
                 android:background="@android:drawable/edit_text"
                 android:inputType="textCapSentences"
                 android:layout_marginBottom="8dp"

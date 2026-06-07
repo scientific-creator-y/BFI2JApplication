@@ -91,68 +91,77 @@
                 android:layout_marginBottom="8dp"
                 />
 
-<!--            下位特性①-->
             <LinearLayout
+                android:id="@+id/rootSubTraitE"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 社交性："/>
-                <TextView
-                    android:id="@+id/tvESubTrait1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="1.9 / 5"
-                    />
-            </LinearLayout>
+                <!--            下位特性①-->
 
-<!--            下位特性②-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" リーダーシップ："/>
-
-                <TextView
-                    android:id="@+id/tvESubTrait2"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
-<!--            下位特性③-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 社交性："/>
+                    <TextView
+                        android:id="@+id/tvESubTrait1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="1.9 / 5"
+                        />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 活発さ："/>
-                <TextView
-                    android:id="@+id/tvESubTrait3"
+                <!--            下位特性②-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" リーダーシップ："/>
+
+                    <TextView
+                        android:id="@+id/tvESubTrait2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
+
+                <!--            下位特性③-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 活発さ："/>
+                    <TextView
+                        android:id="@+id/tvESubTrait3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
 
@@ -205,6 +214,16 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"
                 />
+
+
+        <LinearLayout
+            android:id="@+id/rootSubTraitA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
 
             <!--            下位特性①-->
             <LinearLayout
@@ -270,6 +289,8 @@
                     />
             </LinearLayout>
 
+        </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tvADesc"
@@ -320,68 +341,78 @@
                 android:layout_marginBottom="8dp"
                 />
 
-            <!--            下位特性①-->
+
             <LinearLayout
+                android:id="@+id/rootSubTraitC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" きっちりさ："/>
-                <TextView
-                    android:id="@+id/tvCSubTrait1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="1.9 / 5"
-                    />
-            </LinearLayout>
 
-            <!--            下位特性②-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 努力家："/>
-
-                <TextView
-                    android:id="@+id/tvCSubTrait2"
+                <!--            下位特性①-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
-            <!--            下位特性③-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" きっちりさ："/>
+                    <TextView
+                        android:id="@+id/tvCSubTrait1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="1.9 / 5"
+                        />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 責任感："/>
-                <TextView
-                    android:id="@+id/tvCSubTrait3"
+                <!--            下位特性②-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 努力家："/>
+
+                    <TextView
+                        android:id="@+id/tvCSubTrait2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
+
+                <!--            下位特性③-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 責任感："/>
+                    <TextView
+                        android:id="@+id/tvCSubTrait3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
 
@@ -432,70 +463,81 @@
                 android:layout_marginBottom="8dp"
                 />
 
-            <!--            下位特性①-->
+
+
+
             <LinearLayout
+                android:id="@+id/rootSubTraitN"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 冷静さ："/>
-                <TextView
-                    android:id="@+id/tvNSubTrait1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="1.9 / 5"
-                    />
-            </LinearLayout>
 
-            <!--            下位特性②-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 打たれ強さ："/>
-
-                <TextView
-                    android:id="@+id/tvNSubTrait2"
+                <!--            下位特性①-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
-            <!--            下位特性③-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 冷静さ："/>
+                    <TextView
+                        android:id="@+id/tvNSubTrait1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="1.9 / 5"
+                        />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 感情の安定："/>
-                <TextView
-                    android:id="@+id/tvNSubTrait3"
+                <!--            下位特性②-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 打たれ強さ："/>
+
+                    <TextView
+                        android:id="@+id/tvNSubTrait2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
+
+                <!--            下位特性③-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 感情の安定："/>
+                    <TextView
+                        android:id="@+id/tvNSubTrait3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvNDesc"
@@ -549,68 +591,78 @@
                 android:layout_marginBottom="8dp"
                 />
 
-            <!--            下位特性①-->
+
+
             <LinearLayout
+                android:id="@+id/rootSubTraitO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 知的好奇心："/>
-                <TextView
-                    android:id="@+id/tvOSubTrait1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="1.9 / 5"
-                    />
-            </LinearLayout>
 
-            <!--            下位特性②-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 芸術性："/>
-
-                <TextView
-                    android:id="@+id/tvOSubTrait2"
+                <!--            下位特性①-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
-            </LinearLayout>
+                    android:orientation="horizontal">
 
-            <!--            下位特性③-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 知的好奇心："/>
+                    <TextView
+                        android:id="@+id/tvOSubTrait1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="1.9 / 5"
+                        />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:text=" 想像豊かさ："/>
-                <TextView
-                    android:id="@+id/tvOSubTrait3"
+                <!--            下位特性②-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/BodyWhite"
-                    android:layout_marginStart="20dp"
-                    android:text="/ 5"
-                    />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 芸術性："/>
+
+                    <TextView
+                        android:id="@+id/tvOSubTrait2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
+
+                <!--            下位特性③-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:text=" 想像豊かさ："/>
+                    <TextView
+                        android:id="@+id/tvOSubTrait3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/BodyWhite"
+                        android:layout_marginStart="20dp"
+                        android:text="/ 5"
+                        />
+                </LinearLayout>
             </LinearLayout>
 
 

@@ -34,47 +34,58 @@ class SplashActivity : AppCompatActivity() {
 
         // アカウントがないなら
         if (currentUser == null) {
-            // 読み込めたら用意完了
-//            isReady = true
-
             // ログイン画面に
             val intent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
 
         } else {
+            // アカウントがあって…
+            currentUser.reload().addOnSuccessListener {
 
+                    // メールで登録しているユーザーで…
+                    val isPasswordUser =
+                        currentUser.providerData.any {
+                            it.providerId == "password"
+                        }
 
-            // アカウントがあるならホームorイントロ画面へ
-            db.collection("results")
-                .document(currentUser.uid)
-                .get()
-                .addOnSuccessListener { document ->
-                    val diagnosed = document.getBoolean("diagnosed") ?: false
-
-
-                    if (document.exists() && diagnosed) {
-                        // 読み込めたら用意完了
-//                        isReady = true
-
-                        // 診断済みならホーム画面に遷移
-                        val intent = Intent(this@SplashActivity, MainActivity2::class.java)
-                        startActivity(intent)
+                    // 認証がまだなら認証画面へ
+                    if (isPasswordUser && !currentUser.isEmailVerified) {
+                        startActivity(Intent(this, VerificationActivity::class.java))
                         finish()
+                        return@addOnSuccessListener
 
                     } else {
-                        // 読み込めたら用意完了
-//                        isReady = true
+                        // 認証されているorゲストならホームorイントロ画面へ
+                        db.collection("results")
+                            .document(currentUser.uid)
+                            .get()
+                            .addOnSuccessListener { document ->
+                                val diagnosed = document.getBoolean("diagnosed") ?: false
 
-                        // 未診断ならイントロ画面に遷移
-                        val intent = Intent(this@SplashActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
+
+                                if (document.exists() && diagnosed) {
+
+                                    // 診断済みならホーム画面に遷移
+                                    val intent = Intent(this@SplashActivity, MainActivity2::class.java)
+                                    startActivity(intent)
+                                    finish()
+
+                                } else {
+
+                                    // 未診断ならイントロ画面に遷移
+                                    val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+
+                                }
+                            }
 
                     }
-                    // この画面は消去
-                    finish()
+
                 }
+
+
         }
     }
 

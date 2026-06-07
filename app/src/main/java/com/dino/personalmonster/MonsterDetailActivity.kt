@@ -146,9 +146,9 @@ class MonsterDetailActivity : AppCompatActivity() {
                         ivTypeIcon.setImageResource(R.drawable.icon_thunder)
                         tvType.text = "雷"
                     }
-                    "magnet" -> {
-                        ivTypeIcon.setImageResource(R.drawable.icon_magnet)
-                        tvType.text = "電磁"
+                    "light" -> {
+                        ivTypeIcon.setImageResource(R.drawable.icon_light)
+                        tvType.text = "光"
                     }
                     "metal" -> {
                         ivTypeIcon.setImageResource(R.drawable.icon_metal)

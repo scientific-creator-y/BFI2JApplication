@@ -79,8 +79,16 @@ class ResultActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_result)
 
-        // Viewを取得して余白を入れる
+        // UI取得
         val rootLayout = findViewById<ScrollView>(R.id.rootLayout)
+        val rootSubTraitE = findViewById<LinearLayout>(R.id.rootSubTraitE)
+        val rootSubTraitA = findViewById<LinearLayout>(R.id.rootSubTraitA)
+        val rootSubTraitC = findViewById<LinearLayout>(R.id.rootSubTraitC)
+        val rootSubTraitN = findViewById<LinearLayout>(R.id.rootSubTraitN)
+        val rootSubTraitO = findViewById<LinearLayout>(R.id.rootSubTraitO)
+
+
+        // Viewを取得して余白を入れる
         InsetsUtil.applySystemBarsInsets(rootLayout)
 
 
@@ -385,6 +393,13 @@ class ResultActivity : AppCompatActivity() {
 //                btBackToDiagnosis.visibility = View.GONE
                 btBack.visibility = View.GONE
 //                btSave.visibility = View.GONE
+
+                // 下位特性は表示せず
+                rootSubTraitE.visibility = View.GONE
+                rootSubTraitA.visibility = View.GONE
+                rootSubTraitC.visibility = View.GONE
+                rootSubTraitN.visibility = View.GONE
+                rootSubTraitO.visibility = View.GONE
 
             }
         }

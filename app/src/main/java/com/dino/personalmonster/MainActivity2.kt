@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dino.personalmonster.data.InfoContent
 import com.dino.personalmonster.ui.InsetsUtil
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -60,12 +61,12 @@ class MainActivity2 : AppCompatActivity() {
     }
     private var isUpdateChecked = false
 
-    data class InfoContent(
-        val title: String = "",
-        val message: String = "",
-        val imageResource: Int? = null
-
-    )
+//    data class InfoContent(
+//        val title: String = "",
+//        val message: String = "",
+//        val imageResource: Int? = null
+//
+//    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -110,11 +111,10 @@ class MainActivity2 : AppCompatActivity() {
 
 
         // 認証済化どうかをチェック
-        val user = auth.currentUser
-        Log.i("認証状態", "${user?.isEmailVerified}")
+//        val user = auth.currentUser
+//        Log.i("認証状態", "${user?.isEmailVerified}")
 
-        // トレーニングのマスターデータから取得する処理
-        initializeTrainingMenus()
+
 
 
         // 初期値を取得する処理（特性、ファセット）
@@ -244,39 +244,6 @@ class MainActivity2 : AppCompatActivity() {
 
 
 
-    // ユーザー用にトレーニングメニューのコピー
-    private fun initializeTrainingMenus() {
-        val userId = auth.currentUser?.uid
-
-        if (userId != null) {
-            db.collection("trainingMenus") // ← マスターデータのトレーニング取得
-                .get()
-                .addOnSuccessListener { masterSnapshot ->
-                    val userMenus = db.collection("results")
-                        .document(userId)
-                        .collection("trainingMenus")
-
-                    masterSnapshot.documents.forEach { masterDoc ->
-                        val userDocRef = userMenus.document(masterDoc.id)
-
-                        userDocRef.get()
-                            .addOnSuccessListener { userDoc ->
-                                // ユーザーにないトレーニングならドキュメントをコピー
-                                if (!userDoc.exists()) {
-                                    userDocRef.set(
-//                                        emptyMap<String, Any>()
-                                        mapOf(
-                                            "habit" to false,
-                                            "orderIndex" to 0
-                                        )
-                                    )
-                                }
-                            }
-                    }
-                }
-        }
-    }
-
     // オプションアイテムを作る処理
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.option_menu, menu)
@@ -292,14 +259,7 @@ class MainActivity2 : AppCompatActivity() {
                 val intent = Intent(this@MainActivity2, PrivacyActivity::class.java)
                 startActivity(intent)
             }
-//             データ削除のメニュー
-            R.id.remove_user -> {
 
-          }
-            // データ削除のメニュー
-            R.id.delete_data -> {
-
-          }
 
             // 診断を楽しむボタン
             R.id.diagnosis_option -> {

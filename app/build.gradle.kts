@@ -15,8 +15,8 @@ android {
         applicationId = "com.dino.personalmonster"
         minSdk = 24
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.1.0"
+        versionCode = 4
+        versionName = "1.1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -81,6 +81,9 @@ dependencies {
 
     // Googleログインの処理のために追加
     implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    // タグの一覧表示フレックスボックス
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -1,5 +1,6 @@
 package com.dino.personalmonster
 
+import android.accounts.Account
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
@@ -7,16 +8,50 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import android.widget.LinearLayout
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.dino.personalmonster.ui.InsetsUtil
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.android.gms.common.api.ApiException
 
 class PrivacyActivity : AppCompatActivity() {
+    // Google認証
+    private lateinit var googleSignInClient: GoogleSignInClient
+
+    private val launcher =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result ->
+
+            val task =
+                GoogleSignIn.getSignedInAccountFromIntent(result.data)
+
+            try {
+
+                val account =
+                    task.getResult(ApiException::class.java)
+
+                reauthenticateGoogle(account)
+
+            } catch (e: Exception) {
+
+                Toast.makeText(
+                    this,
+                    "Googleログインに失敗しました。",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     private lateinit var auth: FirebaseAuth
 
 
@@ -41,6 +76,18 @@ class PrivacyActivity : AppCompatActivity() {
         val btnDeleteData = findViewById<Button>(R.id.btnDeleteData)
         val btnDeleteAccount = findViewById<Button>(R.id.btnDeleteAccount)
 
+
+        // Google
+        val gso = GoogleSignInOptions.Builder(
+            GoogleSignInOptions.DEFAULT_SIGN_IN
+        )
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+
         // データの削除
         btnDeleteData.setOnClickListener {
             val dialog = ConfirmDialogFragment.newInstance("すべての結果をリセットしますか？（診断結果、トレーニングの結果もすべてリセットされます。", 3) { requestCode ->
@@ -63,34 +110,83 @@ class PrivacyActivity : AppCompatActivity() {
 
         // アカウントの削除
         btnDeleteAccount.setOnClickListener {
-            val editText = EditText(this)
-            editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
-            val alertDialog = AlertDialog.Builder(this)
-                .setTitle("パスワードを入力してください")
-                .setView(editText)
-                .setPositiveButton("認証",null)
-                .setNegativeButton("キャンセル", null)
-                .show()
+            // 何でログインしているか
+            val providerId = auth.currentUser
+                ?.providerData
+                ?.firstOrNull { it.providerId !=  "firebase" }
+                ?.providerId
 
-            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                val password = editText.text.toString()
 
-                if (password.isBlank()) {
-                    editText.error = "パスワードを入力してください"
-                    return@setOnClickListener
+            if (providerId == "google.com") {
+                // GoogleならGoogle認証画面
+                googleSignInClient.signOut()
+                    .addOnCompleteListener {
+
+                        launcher.launch(
+                            googleSignInClient.signInIntent
+                        )
+                    }
+            } else {
+                // メールアドレスなら、パスワード入力ダイアログ
+                val editText = EditText(this)
+                editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle("パスワードを入力してください")
+                    .setView(editText)
+                    .setPositiveButton("認証",null)
+                    .setNegativeButton("キャンセル", null)
+                    .show()
+
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    val password = editText.text.toString()
+
+                    if (password.isBlank()) {
+                        editText.error = "パスワードを入力してください"
+                        return@setOnClickListener
+                    }
+                    removeFirebaseAuth(password, editText, alertDialog)
+
+
                 }
-                removeFirebaseAuth(password, editText, alertDialog)
-
-
             }
         }
 
     }
 
+    // Googleの認証処理
+    private fun reauthenticateGoogle(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+
+        val user = auth.currentUser
+        user
+            ?.reauthenticate(credential)
+            ?.addOnSuccessListener {
+
+                val dialog = ConfirmDialogFragment.newInstance("アカウントを削除しますか？（診断結果、トレーニングの結果もすべて削除されます。", 3) { requestCode ->
+                    // Firestore削除
+                    deleteFirestoreData(user.uid) {
+                        // Auth削除
+                        deleteAuthUser(user)
+                    }
+                }
+                dialog.show(supportFragmentManager, "ConfirmDialog")
+
+            }
+            ?.addOnFailureListener { e ->
+
+                Toast.makeText(
+                    this,
+                    "再認証に失敗しました",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+    }
 
 
-    // アカウントを削除する処理
+
+    // アカウントの前にデータを削除する処理
     private fun removeFirebaseAuth(password: String, editText: EditText, alertDialog: AlertDialog) {
 
         val user = auth.currentUser ?: return
@@ -185,6 +281,14 @@ class PrivacyActivity : AppCompatActivity() {
                 )
 
                 finishAffinity()
+            }
+            .addOnFailureListener { e ->
+
+                Toast.makeText(
+                    this,
+                    "アカウント削除失敗: ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
     }
 

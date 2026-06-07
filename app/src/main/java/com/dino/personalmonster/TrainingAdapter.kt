@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class TrainingAdapter(
@@ -16,7 +17,10 @@ class TrainingAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvTitle: TextView = view.findViewById(R.id.tvTrainingTitle)
-        val btnComplete: Button = view.findViewById(R.id.btnComplete)
+        val tvParameterIcon: TextView = view.findViewById(R.id.tvParameterIcon)
+        val tvHabitIcon: TextView = view.findViewById(R.id.tvHabitIcon)
+
+//        val btnComplete: Button = view.findViewById(R.id.btnComplete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,13 +32,46 @@ class TrainingAdapter(
         val item = filteredItems[position]
         holder.tvTitle.text = item.title
 
+        when(item.parameterKey) {
+            "social" -> {
+                holder.tvParameterIcon.text = ParameterType.SOCIAL.label
+                holder.tvParameterIcon.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_ic_social)
+            }
+            "harmony" -> {
+                holder.tvParameterIcon.text = ParameterType.HARMONY.label
+                holder.tvParameterIcon.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_ic_harmony)
+            }
+            "will" -> {
+                holder.tvParameterIcon.text = ParameterType.WILL.label
+                holder.tvParameterIcon.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_ic_will)
+            }
+            "mental" -> {
+                holder.tvParameterIcon.text = ParameterType.MENTAL.label
+                holder.tvParameterIcon.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_ic_mental)
+            }
+            "explore" -> {
+                holder.tvParameterIcon.text = ParameterType.EXPLORE.label
+                holder.tvParameterIcon.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_ic_explore)
+            }
+            "HP" -> {
+                holder.tvParameterIcon.text = ParameterType.HP.label
+                holder.tvParameterIcon.background = ContextCompat.getDrawable(holder.itemView.context, R.drawable.bg_ic_hp)
+            }
+        }
+
+        if (item.habit) {
+            holder.tvHabitIcon.visibility = View.VISIBLE
+        } else {
+            holder.tvHabitIcon.visibility = View.GONE
+        }
+
         // アイテムが押されたら詳細に遷移
         holder.itemView.setOnClickListener {
             onClick(item.id, item)
         }
 
         // 達成ボタンは表示しない
-        holder.btnComplete.visibility = View.GONE
+//        holder.btnComplete.visibility = View.GONE
 
     }
 
