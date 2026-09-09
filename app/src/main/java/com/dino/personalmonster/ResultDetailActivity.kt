@@ -206,73 +206,73 @@ class ResultDetailActivity : AppCompatActivity() {
                 R.string.tv_prof_e_low_feature_1_subtitle, R.string.tv_prof_e_low_feature_2_subtitle, R.string.tv_prof_e_low_feature_3_subtitle, R.string.tv_prof_e_low_feature_4_subtitle, R.string.tv_prof_e_low_feature_5_subtitle, R.string.tv_prof_e_low_feature_6_subtitle,
                 R.string.tv_prof_e_low_feature_1_subdesc, R.string.tv_prof_e_low_feature_2_subdesc, R.string.tv_prof_e_low_feature_3_subdesc, R.string.tv_prof_e_low_feature_4_subdesc, R.string.tv_prof_e_low_feature_5_subdesc, R.string.tv_prof_e_low_feature_6_subdesc, )
 
-            "E-mid" -> ResultDetailActivity.ProfileData("E-mid",R.string.tv_prof_e_mid_title, R.string.tv_prof_e_mid_desc,R.drawable.e_high_header,
+            "E-mid" -> ResultDetailActivity.ProfileData("E-mid",R.string.tv_prof_e_mid_title, R.string.tv_prof_e_mid_desc,R.drawable.header_006,
                 R.string.tv_prof_e_mid_feature_title, R.string.tv_prof_e_mid_feature_desc,
                 R.string.tv_prof_e_mid_feature_1_subtitle, R.string.tv_prof_e_mid_feature_2_subtitle, R.string.tv_prof_e_mid_feature_3_subtitle, R.string.tv_prof_e_mid_feature_4_subtitle, R.string.tv_prof_e_mid_feature_5_subtitle, R.string.tv_prof_e_mid_feature_6_subtitle,
                 R.string.tv_prof_e_mid_feature_1_subdesc, R.string.tv_prof_e_mid_feature_2_subdesc, R.string.tv_prof_e_mid_feature_3_subdesc, R.string.tv_prof_e_mid_feature_4_subdesc, R.string.tv_prof_e_mid_feature_5_subdesc, R.string.tv_prof_e_mid_feature_6_subdesc, )
 
 
             // 協調性
-            "A-high" -> ResultDetailActivity.ProfileData("A-high",R.string.tv_prof_a_high_title, R.string.tv_prof_a_high_desc,R.drawable.a_high_header,
+            "A-high" -> ResultDetailActivity.ProfileData("A-high",R.string.tv_prof_a_high_title, R.string.tv_prof_a_high_desc,R.drawable.header_002,
                 R.string.tv_prof_a_high_feature_title, R.string.tv_prof_a_high_feature_desc,
                 R.string.tv_prof_a_high_feature_1_subtitle, R.string.tv_prof_a_high_feature_2_subtitle, R.string.tv_prof_a_high_feature_3_subtitle, R.string.tv_prof_a_high_feature_4_subtitle, R.string.tv_prof_a_high_feature_5_subtitle, R.string.tv_prof_a_high_feature_6_subtitle,
                 R.string.tv_prof_a_high_feature_1_subdesc, R.string.tv_prof_a_high_feature_2_subdesc, R.string.tv_prof_a_high_feature_3_subdesc, R.string.tv_prof_a_high_feature_4_subdesc, R.string.tv_prof_a_high_feature_5_subdesc, R.string.tv_prof_a_high_feature_6_subdesc, )
 
-            "A-low" -> ResultDetailActivity.ProfileData("A-low",R.string.tv_prof_a_low_title, R.string.tv_prof_a_low_desc,R.drawable.a_low_header,
+            "A-low" -> ResultDetailActivity.ProfileData("A-low",R.string.tv_prof_a_low_title, R.string.tv_prof_a_low_desc,R.drawable.header_012,
                 R.string.tv_prof_a_low_feature_title, R.string.tv_prof_a_low_feature_desc,
                 R.string.tv_prof_a_low_feature_1_subtitle, R.string.tv_prof_a_low_feature_2_subtitle, R.string.tv_prof_a_low_feature_3_subtitle, R.string.tv_prof_a_low_feature_4_subtitle, R.string.tv_prof_a_low_feature_5_subtitle, R.string.tv_prof_a_low_feature_6_subtitle,
                 R.string.tv_prof_a_low_feature_1_subdesc, R.string.tv_prof_a_low_feature_2_subdesc, R.string.tv_prof_a_low_feature_3_subdesc, R.string.tv_prof_a_low_feature_4_subdesc, R.string.tv_prof_a_low_feature_5_subdesc, R.string.tv_prof_a_low_feature_6_subdesc, )
-            "A-mid" -> ResultDetailActivity.ProfileData("A-mid",R.string.tv_prof_a_mid_title, R.string.tv_prof_a_mid_desc,R.drawable.a_high_header,
+            "A-mid" -> ResultDetailActivity.ProfileData("A-mid",R.string.tv_prof_a_mid_title, R.string.tv_prof_a_mid_desc,R.drawable.header_007,
                 R.string.tv_prof_a_mid_feature_title, R.string.tv_prof_a_mid_feature_desc,
                 R.string.tv_prof_a_mid_feature_1_subtitle, R.string.tv_prof_a_mid_feature_2_subtitle, R.string.tv_prof_a_mid_feature_3_subtitle, R.string.tv_prof_a_mid_feature_4_subtitle, R.string.tv_prof_a_mid_feature_5_subtitle, R.string.tv_prof_a_mid_feature_6_subtitle,
                 R.string.tv_prof_a_mid_feature_1_subdesc, R.string.tv_prof_a_mid_feature_2_subdesc, R.string.tv_prof_a_mid_feature_3_subdesc, R.string.tv_prof_a_mid_feature_4_subdesc, R.string.tv_prof_a_mid_feature_5_subdesc, R.string.tv_prof_a_mid_feature_6_subdesc, )
 
 
             // 勤勉性
-            "C-high" -> ResultDetailActivity.ProfileData("C-high",R.string.tv_prof_c_high_title, R.string.tv_prof_c_high_desc,R.drawable.c_high_header,
+            "C-high" -> ResultDetailActivity.ProfileData("C-high",R.string.tv_prof_c_high_title, R.string.tv_prof_c_high_desc,R.drawable.header_003,
                 R.string.tv_prof_c_high_feature_title, R.string.tv_prof_c_high_feature_desc,
                 R.string.tv_prof_c_high_feature_1_subtitle, R.string.tv_prof_c_high_feature_2_subtitle, R.string.tv_prof_c_high_feature_3_subtitle, R.string.tv_prof_c_high_feature_4_subtitle, R.string.tv_prof_c_high_feature_5_subtitle, R.string.tv_prof_c_high_feature_6_subtitle,
                 R.string.tv_prof_c_high_feature_1_subdesc, R.string.tv_prof_c_high_feature_2_subdesc, R.string.tv_prof_c_high_feature_3_subdesc, R.string.tv_prof_c_high_feature_4_subdesc, R.string.tv_prof_c_high_feature_5_subdesc, R.string.tv_prof_c_high_feature_6_subdesc, )
 
-            "C-low" -> ResultDetailActivity.ProfileData("C-low",R.string.tv_prof_c_low_title, R.string.tv_prof_c_low_desc,R.drawable.c_low_header,
+            "C-low" -> ResultDetailActivity.ProfileData("C-low",R.string.tv_prof_c_low_title, R.string.tv_prof_c_low_desc,R.drawable.header_013,
                 R.string.tv_prof_c_low_feature_title, R.string.tv_prof_c_low_feature_desc,
                 R.string.tv_prof_c_low_feature_1_subtitle, R.string.tv_prof_c_low_feature_2_subtitle, R.string.tv_prof_c_low_feature_3_subtitle, R.string.tv_prof_c_low_feature_4_subtitle, R.string.tv_prof_c_low_feature_5_subtitle, R.string.tv_prof_c_low_feature_6_subtitle,
                 R.string.tv_prof_c_low_feature_1_subdesc, R.string.tv_prof_c_low_feature_2_subdesc, R.string.tv_prof_c_low_feature_3_subdesc, R.string.tv_prof_c_low_feature_4_subdesc, R.string.tv_prof_c_low_feature_5_subdesc, R.string.tv_prof_c_low_feature_6_subdesc, )
 
-            "C-mid" -> ResultDetailActivity.ProfileData("C-mid",R.string.tv_prof_c_mid_title, R.string.tv_prof_c_mid_desc,R.drawable.c_high_header,
+            "C-mid" -> ResultDetailActivity.ProfileData("C-mid",R.string.tv_prof_c_mid_title, R.string.tv_prof_c_mid_desc,R.drawable.header_008,
                 R.string.tv_prof_c_mid_feature_title, R.string.tv_prof_c_mid_feature_desc,
                 R.string.tv_prof_c_mid_feature_1_subtitle, R.string.tv_prof_c_mid_feature_2_subtitle, R.string.tv_prof_c_mid_feature_3_subtitle, R.string.tv_prof_c_mid_feature_4_subtitle, R.string.tv_prof_c_mid_feature_5_subtitle, R.string.tv_prof_c_mid_feature_6_subtitle,
                 R.string.tv_prof_c_mid_feature_1_subdesc, R.string.tv_prof_c_mid_feature_2_subdesc, R.string.tv_prof_c_mid_feature_3_subdesc, R.string.tv_prof_c_mid_feature_4_subdesc, R.string.tv_prof_c_mid_feature_5_subdesc, R.string.tv_prof_c_mid_feature_6_subdesc, )
 
 
             // 情緒安定性
-            "N-high" -> ResultDetailActivity.ProfileData("N-high",R.string.tv_prof_n_high_title, R.string.tv_prof_n_high_desc,R.drawable.n_high_header,
+            "N-high" -> ResultDetailActivity.ProfileData("N-high",R.string.tv_prof_n_high_title, R.string.tv_prof_n_high_desc,R.drawable.header_004,
                 R.string.tv_prof_n_high_feature_title, R.string.tv_prof_n_high_feature_desc,
                 R.string.tv_prof_n_high_feature_1_subtitle, R.string.tv_prof_n_high_feature_2_subtitle, R.string.tv_prof_n_high_feature_3_subtitle, R.string.tv_prof_n_high_feature_4_subtitle, R.string.tv_prof_n_high_feature_5_subtitle, R.string.tv_prof_n_high_feature_6_subtitle,
                 R.string.tv_prof_n_high_feature_1_subdesc, R.string.tv_prof_n_high_feature_2_subdesc, R.string.tv_prof_n_high_feature_3_subdesc, R.string.tv_prof_n_high_feature_4_subdesc, R.string.tv_prof_n_high_feature_5_subdesc, R.string.tv_prof_n_high_feature_6_subdesc, )
 
-            "N-low" -> ResultDetailActivity.ProfileData("N-low",R.string.tv_prof_n_low_title, R.string.tv_prof_n_low_desc,R.drawable.n_low_header,
+            "N-low" -> ResultDetailActivity.ProfileData("N-low",R.string.tv_prof_n_low_title, R.string.tv_prof_n_low_desc,R.drawable.header_014,
                 R.string.tv_prof_n_low_feature_title, R.string.tv_prof_n_low_feature_desc,
                 R.string.tv_prof_n_low_feature_1_subtitle, R.string.tv_prof_n_low_feature_2_subtitle, R.string.tv_prof_n_low_feature_3_subtitle, R.string.tv_prof_n_low_feature_4_subtitle, R.string.tv_prof_n_low_feature_5_subtitle, R.string.tv_prof_n_low_feature_6_subtitle,
                 R.string.tv_prof_n_low_feature_1_subdesc, R.string.tv_prof_n_low_feature_2_subdesc, R.string.tv_prof_n_low_feature_3_subdesc, R.string.tv_prof_n_low_feature_4_subdesc, R.string.tv_prof_n_low_feature_5_subdesc, R.string.tv_prof_n_low_feature_6_subdesc, )
-            "N-mid" -> ResultDetailActivity.ProfileData("N-mid",R.string.tv_prof_n_mid_title, R.string.tv_prof_n_mid_desc,R.drawable.n_high_header,
+            "N-mid" -> ResultDetailActivity.ProfileData("N-mid",R.string.tv_prof_n_mid_title, R.string.tv_prof_n_mid_desc,R.drawable.header_009,
                 R.string.tv_prof_n_mid_feature_title, R.string.tv_prof_n_mid_feature_desc,
                 R.string.tv_prof_n_mid_feature_1_subtitle, R.string.tv_prof_n_mid_feature_2_subtitle, R.string.tv_prof_n_mid_feature_3_subtitle, R.string.tv_prof_n_mid_feature_4_subtitle, R.string.tv_prof_n_mid_feature_5_subtitle, R.string.tv_prof_n_mid_feature_6_subtitle,
                 R.string.tv_prof_n_mid_feature_1_subdesc, R.string.tv_prof_n_mid_feature_2_subdesc, R.string.tv_prof_n_mid_feature_3_subdesc, R.string.tv_prof_n_mid_feature_4_subdesc, R.string.tv_prof_n_mid_feature_5_subdesc, R.string.tv_prof_n_mid_feature_6_subdesc, )
 
 
             // 開放性
-            "O-high" -> ResultDetailActivity.ProfileData("O-high",R.string.tv_prof_o_high_title, R.string.tv_prof_o_high_desc,R.drawable.o_high_header,
+            "O-high" -> ResultDetailActivity.ProfileData("O-high",R.string.tv_prof_o_high_title, R.string.tv_prof_o_high_desc,R.drawable.header_005,
                 R.string.tv_prof_o_high_feature_title, R.string.tv_prof_o_high_feature_desc,
                 R.string.tv_prof_o_high_feature_1_subtitle, R.string.tv_prof_o_high_feature_2_subtitle, R.string.tv_prof_o_high_feature_3_subtitle, R.string.tv_prof_o_high_feature_4_subtitle, R.string.tv_prof_o_high_feature_5_subtitle, R.string.tv_prof_o_high_feature_6_subtitle,
                 R.string.tv_prof_o_high_feature_1_subdesc, R.string.tv_prof_o_high_feature_2_subdesc, R.string.tv_prof_o_high_feature_3_subdesc, R.string.tv_prof_o_high_feature_4_subdesc, R.string.tv_prof_o_high_feature_5_subdesc, R.string.tv_prof_o_high_feature_6_subdesc, )
 
-            "O-low" -> ResultDetailActivity.ProfileData("O-low",R.string.tv_prof_o_low_title, R.string.tv_prof_o_low_desc,R.drawable.o_low_header,
+            "O-low" -> ResultDetailActivity.ProfileData("O-low",R.string.tv_prof_o_low_title, R.string.tv_prof_o_low_desc,R.drawable.header_015,
                 R.string.tv_prof_o_low_feature_title, R.string.tv_prof_o_low_feature_desc,
                 R.string.tv_prof_o_low_feature_1_subtitle, R.string.tv_prof_o_low_feature_2_subtitle, R.string.tv_prof_o_low_feature_3_subtitle, R.string.tv_prof_o_low_feature_4_subtitle, R.string.tv_prof_o_low_feature_5_subtitle, R.string.tv_prof_o_low_feature_6_subtitle,
                 R.string.tv_prof_o_low_feature_1_subdesc, R.string.tv_prof_o_low_feature_2_subdesc, R.string.tv_prof_o_low_feature_3_subdesc, R.string.tv_prof_o_low_feature_4_subdesc, R.string.tv_prof_o_low_feature_5_subdesc, R.string.tv_prof_o_low_feature_6_subdesc, )
 
-            "O-mid" -> ResultDetailActivity.ProfileData("O-mid",R.string.tv_prof_o_mid_title, R.string.tv_prof_o_mid_desc,R.drawable.o_high_header,
+            "O-mid" -> ResultDetailActivity.ProfileData("O-mid",R.string.tv_prof_o_mid_title, R.string.tv_prof_o_mid_desc,R.drawable.header_010,
                 R.string.tv_prof_o_mid_feature_title, R.string.tv_prof_o_mid_feature_desc,
                 R.string.tv_prof_o_mid_feature_1_subtitle, R.string.tv_prof_o_mid_feature_2_subtitle, R.string.tv_prof_o_mid_feature_3_subtitle, R.string.tv_prof_o_mid_feature_4_subtitle, R.string.tv_prof_o_mid_feature_5_subtitle, R.string.tv_prof_o_mid_feature_6_subtitle,
                 R.string.tv_prof_o_mid_feature_1_subdesc, R.string.tv_prof_o_mid_feature_2_subdesc, R.string.tv_prof_o_mid_feature_3_subdesc, R.string.tv_prof_o_mid_feature_4_subdesc, R.string.tv_prof_o_mid_feature_5_subdesc, R.string.tv_prof_o_mid_feature_6_subdesc, )

@@ -1,6 +1,8 @@
 package com.dino.personalmonster
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -129,7 +131,7 @@ class TrainingDetailActiivty : AppCompatActivity() {
 //        val tvSkillDesc = findViewById<TextView>(R.id.tvSkillDesc)
 //        val ivSkillIcon = findViewById<ImageView>(R.id.ivSkillIcon)
 
-//        val btBlogLink = findViewById<Button>(R.id.btBlogLink)
+        val btBlogLink = findViewById<Button>(R.id.btBlogLink)
         btnComplete = findViewById<Button>(R.id.btnComplete)
         btAddHabit = findViewById<MaterialButton>(R.id.btAddHabit)
         val btBackToMenuList = findViewById<Button>(R.id.btBackToMenuList)
@@ -222,10 +224,10 @@ class TrainingDetailActiivty : AppCompatActivity() {
         loadHabitStatus()
 
         // ブログボタンが押されたときの処理
-//        btBlogLink.setOnClickListener {
-//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-//            startActivity(intent)
-//        }
+        btBlogLink.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        }
 
         // 戻るボタンが押されたときの処理
         btBackToMenuList.setOnClickListener { finish() }
@@ -304,6 +306,10 @@ class TrainingDetailActiivty : AppCompatActivity() {
 
         // 達成ボタンが押されたときの処理
         btnComplete.setOnClickListener {
+            // 押されたらボタンを処理中にして、無効化
+            btnComplete.text = "処理中…"
+            btnComplete.isEnabled = false
+
             // すでに達成済みなら押したときにトーストを出して処理を止める
             if (isCompletedToday) {
                 Toast.makeText(this@TrainingDetailActiivty, "今日はすでに達成済みです", Toast.LENGTH_LONG).show()
@@ -337,6 +343,10 @@ class TrainingDetailActiivty : AppCompatActivity() {
                 },
                 onFailure = {
                     Toast.makeText(this@TrainingDetailActiivty, "達成処理失敗", Toast.LENGTH_LONG).show()
+
+                    // ボタンは復活させる
+                    btnComplete.text = "達成！"
+                    btnComplete.isEnabled = true
 
                 }
             )
@@ -537,7 +547,7 @@ class TrainingDetailActiivty : AppCompatActivity() {
             btnComplete.isEnabled = false
         } else {
             // 未達成なら押せるようにする
-            btnComplete.text = "達成"
+            btnComplete.text = "達成！"
             btnComplete.isEnabled = true
 
         }

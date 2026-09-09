@@ -94,14 +94,14 @@
             style="@style/Body"
             android:layout_marginBottom="16dp"/>
 
-<!--        <Button-->
-<!--            android:id="@+id/btBlogLink"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            style="@style/Button.positive"-->
-<!--            android:text="この育成メニューをブログでチェック"-->
-<!--            android:autoLink="web"-->
-<!--            />-->
+        <Button
+            android:id="@+id/btBlogLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.positive"
+            android:text="この育成メニューをブログでチェック"
+            android:autoLink="web"
+            />
     </LinearLayout>
 
 
@@ -370,16 +370,3 @@
 </ScrollView>
 
 
-<!--<LinearLayout-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:orientation="vertical">-->
-<!--    -->
-<!--    <WebView-->
-<!--        android:id="@+id/webView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="1"/>-->
-
-<!--    -->
-<!--</LinearLayout>-->

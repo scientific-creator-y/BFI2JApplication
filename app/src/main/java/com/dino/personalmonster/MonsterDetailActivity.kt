@@ -85,7 +85,7 @@ class MonsterDetailActivity : AppCompatActivity() {
 
 
                 // 画像を習得
-                val imageRes = resources.getIdentifier(master.imageRes, "drawable", packageName)
+                val imageRes = resources.getIdentifier(master.monsterImageRes, "drawable", packageName)
                 if (imageRes != 0) {
                     ivMonsterImage.setImageResource(imageRes)
                 }

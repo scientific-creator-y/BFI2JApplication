@@ -82,6 +82,7 @@
 
             android:backgroundTint="@android:color/holo_blue_light"/>
 
+
         <!--        メインの編集アイコン（編集or終了）-->
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fabMain"
@@ -91,24 +92,37 @@
             app:icon="@drawable/ic_edit"
             android:layout_gravity="bottom|end"
 
+            android:visibility="visible"
+
+
+
             android:backgroundTint="?attr/colorPrimary"/>
 
 
 
-<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/fabDelete"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_delete"-->
-<!--            android:visibility="invisible"-->
-<!--            android:layout_gravity="bottom|end"-->
 
-<!--            android:alpha="0"-->
-<!--            android:scaleX="0"-->
-<!--            android:scaleY="0"-->
-<!--            android:backgroundTint="@android:color/holo_red_light"-->
+        <!--        自分で作る習慣-->
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabAddCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自分で追加"
 
-<!--            />-->
+            app:icon="@drawable/ic_add"
+
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="70dp"
+
+            android:visibility="visible"
+            android:backgroundTint="@android:color/holo_green_light"
+
+        />
+        <!--            android:alpha="0"-->
+        <!--            android:scaleX="0"-->
+        <!--            android:scaleY="0"-->
+
+
+
 
         <!--        メインの編集アイコン（編集or終了）-->
 <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->

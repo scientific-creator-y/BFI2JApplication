@@ -7,9 +7,15 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+
 .DS_Store
 /build
 /captures
+
 .externalNativeBuild
+
 .cxx
 local.properties
+
+# Firebase // Firebaseの設定はGitから外す
+google-services.json

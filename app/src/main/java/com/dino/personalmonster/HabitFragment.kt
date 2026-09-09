@@ -35,6 +35,7 @@ class HabitFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var fabRoutine: ExtendedFloatingActionButton
     private lateinit var fabMain: ExtendedFloatingActionButton
+    private lateinit var fabAddCustom: ExtendedFloatingActionButton
 
     private val repository = TrainingRepository()
     private lateinit var tvNoHabit: TextView
@@ -72,13 +73,21 @@ class HabitFragment : Fragment() {
         // フローティングボタンの取得
         fabRoutine = view.findViewById<ExtendedFloatingActionButton>(R.id.fabRoutine)
         fabMain = view.findViewById<ExtendedFloatingActionButton>(R.id.fabMain)
+        fabAddCustom = view.findViewById<ExtendedFloatingActionButton>(R.id.fabAddCustom)
 
         // 最初は非表示
-        fabMain.visibility = View.GONE // 最初は非表示
-        fabRoutine.visibility = View.GONE // 最初は非表示
+        fabMain.visibility = View.GONE
+        fabRoutine.visibility = View.GONE
+        fabAddCustom.visibility = View.GONE // 表示のタイミングを合わせるため、最初は非表示
 
 
-        // ボタンを取得して、押されたときに編集モードに入る
+
+        // 自分で作るボタンが押されたときの処理
+        fabAddCustom.setOnClickListener {
+            Toast.makeText(requireContext(), "自分で追加する処理", Toast.LENGTH_LONG).show()
+        }
+
+        // 編集ボタンが押されたときに編集モードに入る
         fabMain.setOnClickListener { toggleEditMode() }
 
         // ルーティン化のFABが押されたときに一括でルーティンとして登録する
@@ -240,6 +249,8 @@ class HabitFragment : Fragment() {
 //            Log.i("編集モード入った", "${adapter.isEditMode}")
             // アニメーションでフローティングボタンが飛び出る処理
 
+            // 自分で追加ボタンは消す
+            fabAddCustom.visibility = View.GONE
 
             // 編集モードでは☓アイコンに切り替え
             fabMain.setIconResource(R.drawable.ic_close)
@@ -248,6 +259,9 @@ class HabitFragment : Fragment() {
         } else {
             adapter.exitEditMode()
 //            Log.i("編集モード抜ける", "${adapter.isEditMode}")
+
+            // 自分で追加ボタンを表示する
+            fabAddCustom.visibility = View.VISIBLE
 
             // 編集モードを抜けたらアイコンを戻す
             fabMain.setIconResource(R.drawable.ic_edit)
@@ -486,15 +500,14 @@ class HabitFragment : Fragment() {
                                 if (habitItems.isEmpty()) {
                                     // 「追加されていません」のテキスト表示
                                     tvNoHabit.visibility = View.VISIBLE
+                                    fabAddCustom.visibility = View.VISIBLE // ここで自分で追加ボタン表示
 
-//                            // 編集のFABボタンを非表示
-//                            fabMain.visibility = View.GONE
-//                            fabRoutine.visibility = View.GONE
 
                                 } else {
                                     // 編集のFABボタンを表示
                                     fabMain.visibility = View.VISIBLE
                                     fabRoutine.visibility = View.VISIBLE
+                                    fabAddCustom.visibility = View.VISIBLE
                                 }
                                 adapter.updateList(habitItems)
 
@@ -525,6 +538,7 @@ class HabitFragment : Fragment() {
             }
 
     }
+
 
     // Firestoreに並び順を更新する処理
     private fun updateOrderInFirestore() {

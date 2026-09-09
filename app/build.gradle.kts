@@ -9,14 +9,14 @@ plugins {
 
 android {
     namespace = "com.dino.personalmonster"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.dino.personalmonster"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 4
-        versionName = "1.1.1"
+        targetSdk = 36
+        versionCode = 6
+        versionName = "1.2.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -44,7 +44,8 @@ data class MonsterMaster(
     val monsterId: String = "",
     val name: String = "",
     val description: String = "",
-    val imageRes: String = "",
+    val monsterImageRes: String = "",
+    val monsterIconRes: String = "",
     val type: String = "",
     val slot: String = "",
     val rarity: String = "",
@@ -58,7 +59,8 @@ data class DisplayMonster(
     val slot: String = "",
 
     // 変換語のリソースなので数値
-    val imageRes: Int = 1,
+    val monsterImageRes: Int = 1,
+    val monsterIconRes: Int = 1,
     // モンスタータブのために拡張
     val owned: Boolean = false,
     val type:  String = "",
@@ -348,13 +350,15 @@ class HomeFragment : Fragment() {
                     val master = snapshot.toObject(MonsterMaster::class.java)?: return@addOnSuccessListener
 
 //                    Log.i("tag", master.imageRes)
-                    val imageRes = resources.getIdentifier(master.imageRes, "drawable", ctx.packageName)
+                    val imageRes = resources.getIdentifier(master.monsterImageRes, "drawable", ctx.packageName)
+                    val iconImageRes = resources.getIdentifier(master.monsterIconRes, "drawable", ctx.packageName)
 //                    Log.i("img", "${imageRes}")
                     displayList.add(
                         DisplayMonster(
                             monsterId = master.monsterId,
                             name = master.name,
-                            imageRes = imageRes,
+                            monsterImageRes = imageRes,
+                            monsterIconRes = iconImageRes,
                             slot = owned.slot,
                             type = master.type,
                             level = owned.level
@@ -578,8 +582,13 @@ class HomeFragment : Fragment() {
                         DisplayMonster(
                             monsterId = master.monsterId,
                             name = master.name,
-                            imageRes = resources.getIdentifier(
-                                master.imageRes,
+                            monsterImageRes = resources.getIdentifier(
+                                master.monsterImageRes,
+                                "drawable",
+                                ctx.packageName
+                            ),
+                            monsterIconRes = resources.getIdentifier(
+                                master.monsterIconRes,
                                 "drawable",
                                 ctx.packageName
                             ),

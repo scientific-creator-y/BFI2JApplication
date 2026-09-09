@@ -57,7 +57,7 @@ class MonsterAdapter(
 //        val monster = monsterList[position]
         val monster = getItem(position)
 
-        holder.ivMonster.setImageResource(monster.imageRes)
+        holder.ivMonster.setImageResource(monster.monsterIconRes)
         holder.tvName.text = monster.name
 
         // レベルは「育成中モンスター」のリストのみ表示する

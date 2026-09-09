@@ -216,15 +216,16 @@ class MonsterFragment : Fragment() {
                         }
 
                         // すべて表示のときや、タイプフィルターと一致するとき？
-                        val imageRes = if (owned) {
-                             resources.getIdentifier(master.imageRes, "drawable", ctx.packageName)
+                        val iconImageRes = if (owned) {
+                             resources.getIdentifier(master.monsterIconRes, "drawable", ctx.packageName)
                         } else {
                             R.drawable.question
                         }
                         DisplayMonster(
                             monsterId = master.monsterId,
                             name = if(owned) master.name else "???",
-                            imageRes = imageRes,
+//                            monsterImageRes = imageRes,
+                            monsterIconRes = iconImageRes,
                             owned = owned,
                             type = master.type,
                         )

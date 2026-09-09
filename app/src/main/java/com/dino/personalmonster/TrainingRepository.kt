@@ -165,7 +165,7 @@ class TrainingRepository {
                 .get()
                 .addOnSuccessListener { masterDoc ->
                     val monsterName = masterDoc.getString("name")?: ""
-                    val monsterImageRes = masterDoc.getString("imageRes")?: ""
+                    val monsterImageRes = masterDoc.getString("monsterIconRes")?: ""
 
                     val result = TrainingResult(
                         parameterKey = parameterKey,
