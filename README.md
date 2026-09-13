@@ -153,8 +153,8 @@ Firebaseへの非同期処理中にユーザーがボタンを連続タップす
 
 ### ライフハック詳細
 
-![ライフハック詳細](screenshots/lifehack_detail.jpg)
-![ライフハック詳細](screenshots/lifehack_detai2.jpg)
+![ライフハック詳細](screenshots/lifehack_detail_1.jpg)
+![ライフハック詳細](screenshots/lifehack_detail_2.jpg)
 
 
 ### 習慣・Todo管理
