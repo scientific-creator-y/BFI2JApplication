@@ -1,5 +1,3 @@
-<img width="694" height="758" alt="image" src="https://github.com/user-attachments/assets/c3aad14d-0de1-42c0-8180-4b0dedf89c54" /># Personal Monster
-
 ## アプリ概要
 
 本アプリは、ゲーミフィケーションを取り入れた性格診断・習慣化支援のAndroidアプリです。
