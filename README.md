@@ -1,4 +1,4 @@
-# Personal Monster
+<img width="694" height="758" alt="image" src="https://github.com/user-attachments/assets/c3aad14d-0de1-42c0-8180-4b0dedf89c54" /># Personal Monster
 
 ## アプリ概要
 
@@ -131,7 +131,36 @@ Firebaseへの非同期処理中にユーザーがボタンを連続タップす
 
 ## スクリーンショット
 
-準備中
+### 性格診断
+
+![性格診断画面](screenshots/diagnosis.jpg)
+
+
+### 診断結果
+
+![診断結果](screenshots/diagnosis_result.jpg)
+
+
+### ライフハック一覧
+
+![ライフハック一覧](screenshots/lifehack_list.jpg)
+
+
+### ライフハック検索
+
+![ライフハック検索](screenshots/lifehack_search.jpg)
+
+
+### ライフハック詳細
+
+![ライフハック詳細](screenshots/lifehack_detail.jpg)
+![ライフハック詳細](screenshots/lifehack_detai2.jpg)
+
+
+### 習慣・Todo管理
+
+![習慣・Todo管理](screenshots/habit_todo.jpg)
+
 
 ## 公開情報
 
